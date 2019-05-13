@@ -7,6 +7,9 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link href="{{\Illuminate\Support\Facades\URL::asset("css/app.css")}}" rel="stylesheet"/>
+    <link href="{{\Illuminate\Support\Facades\URL::asset("css/mystyle.css")}}" rel="stylesheet"/>
+
+
     <link href="{{\Illuminate\Support\Facades\URL::asset("css/register.css")}}" rel="stylesheet"/>
 </head>
 <body>
