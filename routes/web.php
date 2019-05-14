@@ -20,3 +20,6 @@ Route::get('/register', function () {
 Route::get('/signin', function () {
     return view('signin');
 })->name('signin');
+Route::get('/reportproblem', function () {
+    return view('ReportProblem');
+})->name('reportproblem');

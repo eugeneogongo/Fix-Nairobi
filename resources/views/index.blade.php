@@ -10,6 +10,7 @@
     <link href="{{\Illuminate\Support\Facades\URL::asset("css/mystyle.css")}}" rel="stylesheet"/>
 
 
+
 </head>
 
 <body>
@@ -17,20 +18,14 @@
 
 <section id="report" class="text-center">
 
-    <h1>Report, view, or discuss local problems</h1>
+    <h1 id="reportheader"></h1>
     <h2>(like graffiti, fly tipping, broken paving slabs, or street lighting)</h2>
-    <form>
-        <label for="location">Enter a location within Nairobi county</label><br>
-        <input type="text" name="location" class="report-textbox" size="10" required>
-        <input type="submit" value="Search" class="submit-button">
-    </form>
+    <a class="btn btn-primary btn-lg" href="{{route('reportproblem')}}">Post a Problem</a>
 </section>
 <div class="container">
 
     <section class="content-Home card">
         <div class="tablewrapper">
-
-
             <div class="container">
                 <h1>How to Report an Issue</h1>
                 <ol class="problem-list">
@@ -47,3 +42,18 @@
     </section>
 </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/6.0.3/typeit.min.js"></script>
+<script>
+    new TypeIt('#reportheader', {
+        speed: 50,
+        startDelay: 900
+    })
+        .type('Report, view, or discuss local problems  ')
+        .pause(300)
+        .pause(250)
+        .pause(750)
+        .options({speed: 100, deleteSpeed: 75})
+        .pause(750)
+        .type('in <br><em>Nairobi County.</em>')
+        .go().stop();
+</script>
