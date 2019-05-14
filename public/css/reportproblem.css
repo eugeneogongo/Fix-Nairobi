@@ -1,0 +1,33 @@
+/* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+* {
+    box-sizing: border-box;
+}
+#map {
+    height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.myrow{
+    display:flex;
+    height: 80%;
+
+}
+.column-lg{
+    width: 70%;
+    padding: 10px;
+    height: 100%;
+    margin-top: 50px;
+    margin-right:20px ;
+    margin-left: 20px;
+}
+.column-sm{
+    width: 30%;
+  margin-top: 50px;
+margin-left: 50px;
+    padding: 10px;
+}
