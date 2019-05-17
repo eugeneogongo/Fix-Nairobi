@@ -1,21 +1,8 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fix Nairobi</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-    <link href="{{\Illuminate\Support\Facades\URL::asset("css/app.css")}}" rel="stylesheet"/>
+@extends('layouts.app')
+@section('css')
     <link href="{{\Illuminate\Support\Facades\URL::asset("css/mystyle.css")}}" rel="stylesheet"/>
-
-
-
-</head>
-
-<body>
-@include('layout.header')
-
+@endsection
+@section('content')
 <section id="report" class="text-center">
 
     <h1 id="reportheader"></h1>
@@ -41,7 +28,8 @@
         </div>
     </section>
 </div>
-</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/6.0.3/typeit.min.js"></script>
 <script>
     new TypeIt('#reportheader', {
@@ -57,3 +45,4 @@
         .type('in <br><em>Nairobi County.</em>')
         .go().stop();
 </script>
+@endsection

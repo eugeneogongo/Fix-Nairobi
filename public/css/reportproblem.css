@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 #map {
-    height: 100%;
+    height: auto;
 }
 /* Optional: Makes the sample page fill the window. */
 html, body {
@@ -14,20 +14,51 @@ html, body {
 }
 .myrow{
     display:flex;
-    height: 80%;
+    height: auto;
+    justify-content: flex-start;
 
 }
 .column-lg{
     width: 70%;
     padding: 10px;
     height: 100%;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-right:20px ;
     margin-left: 20px;
 }
 .column-sm{
     width: 30%;
-  margin-top: 50px;
-margin-left: 50px;
+    margin-top: 20px;
+    margin-left: 50px;
     padding: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .myrow {
+        display: flex;
+        width: 100%;
+        flex-direction: column-reverse;
+        height: auto;
+
+    }
+
+    .myrow > div {
+        width: 90%;
+
+    }
+
+    #map {
+        height: 250px;
+    }
+
+    .column-sm {
+        margin: 20px;
+        height: auto;
+    }
+
+    .column-lg {
+        height: auto;
+    }
+
 }

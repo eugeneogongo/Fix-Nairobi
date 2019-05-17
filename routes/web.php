@@ -11,15 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
-Route::get('/signin', function () {
-    return view('signin');
-})->name('signin');
-Route::get('/reportproblem', function () {
-    return view('ReportProblem');
-})->name('reportproblem');
+use Illuminate\Support\Facades\Auth;
+
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/reportproblem', 'ReportController@Show')->name('reportproblem');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
