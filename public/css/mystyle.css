@@ -1,0 +1,96 @@
+
+h1 {
+    font-size:2em;
+
+}body{
+
+    background: white;
+}
+.bg-nav{
+    background: white;
+    color: green;
+}
+.selected{
+    color:navy;
+}
+#report{
+    color: #222;
+    background:darkcyan;
+    height: 300px;
+    padding: 2em;
+}
+#report h2{
+    font-style: italic;
+    font-family: Helmet,Freesans,sans-serif;
+    font-size: 1.1875em;
+    color: #4d4d4d;
+}
+#report h1{
+    font-size: 3em;
+    font-weight: bold;
+    font-family: MuseoSans,Helmet,Freesans,sans-serif;
+}
+#report h1,h2{
+    margin: 5px;
+}
+.report-textbox{
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    height: 2.4em;
+    width: 10%;
+}
+.submit-button{
+    font-size: 1.1em;
+    height: 2.4em;
+    width: 4.5em;
+    font-family: MuseoSans,Helmet,Freesans,sans-serif;
+    font-weight: bold;
+    background: green;
+    border: none;
+
+}
+/*HOme*/
+.content-Home{
+    margin-top: -2em;
+}
+.tablewrapper{
+    display: table;
+    width: 100%;
+    padding: 0 0 1em;
+    table-layout: fixed;
+}
+.tablewrapper > div{
+    display: table-cell;
+    width: 50%;
+}
+.tablewrapper >div >h1{
+    margin: 10px ;
+}
+.problem-list > li{
+    margin-bottom: 2em;
+}
+/*Home */
+@media only screen and (max-width: 600px) {
+    #report h1{
+        font-size: 2em;
+        font-weight: bold;
+        font-family: MuseoSans,Helmet,Freesans,sans-serif;
+    }
+    #report h1,a,h2{
+        margin: 5px;
+    }
+    .report-textbox{
+        padding: 10px 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        height: 2.4em;
+        width: 10%;
+    }
+    .tablewrapper >div >h1{
+        margin: 5px ;
+    }
+    .problem-list > li{
+        margin-bottom: 1em;
+    }
+}
