@@ -19,3 +19,5 @@ Route::get('/reportproblem', 'ReportController@Show')->name('reportproblem');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/reportissue','HomeController@reportIssue')->name('reportissue');
+Route::get('/admin', 'HomeController@admin')->middleware('admin');
