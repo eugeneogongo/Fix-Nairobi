@@ -20,4 +20,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/reportissue','HomeController@reportIssue')->name('reportissue');
-Route::get('/admin', 'HomeController@admin')->middleware('admin');
+Route::get('/admin', 'HomeController@admin')->middleware('admin')->name('admin');
+Route::get('/admin/newIssue','IssueController@show')->middleware('admin')->name('newissue');
+Route::post('/admin/createIssue','IssueController@createIssue')->middleware('admin')->name('createissue');

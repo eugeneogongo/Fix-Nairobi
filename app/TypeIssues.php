@@ -8,4 +8,6 @@ class TypeIssues extends Model
 {
     //set table name
     protected $table = "type_issues";
+    protected $fillable=["desc"];
+
 }

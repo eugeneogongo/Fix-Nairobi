@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Contracts\Support\Renderable;
 
 class HomeController extends Controller
 {
@@ -12,7 +12,10 @@ class HomeController extends Controller
      * @return void
      */
 
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         return view('index')->withTitle("Fix Nairobi");
@@ -20,10 +23,10 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     *
      */
     public function admin()
     {
-
+        return view('admin.dashboard');
     }
 }

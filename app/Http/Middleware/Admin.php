@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Exception;
 use Illuminate\Http\Request;
 
 class Admin
@@ -16,9 +17,14 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->user()->isAdmin == 1) {
-            return $next($request);
+        try{
+            if (auth()->user()->isAdmin == 1) {
+                return $next($request);
+            }
+        }catch (Exception $ex){
+            abort(404);
         }
-        abort(404);
+
+
     }
 }
