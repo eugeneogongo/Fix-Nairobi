@@ -38,7 +38,7 @@
     <div class="myrow">
         <div class="column-sm card">
             <div class="card-body">
-                <form id="newissue">
+                <form id="newissue" action="/reportissue" method="post">
                     <div class="form-label-group">
                         <label for="location">Pick a location on the Map</label>
                         <input type="text" disabled class="form-control" name="location" id="location"/>
@@ -68,7 +68,11 @@
                     </div>
                     <div class="form-label-group">
                         <label for="issuetype">Type of the issue</label>
-                        <input type="text" class="form-control" name="issuetype"/>
+                       <select class="form-control">
+                           @foreach($type_issues as $item)
+                               <option value="{{$item->item_id}}">{{$item->id}}</option>
+                           @endforeach
+                       </select>
                     </div>
                     <div class="form-label-group">
                         <label for="landmark">Nearest LandMark</label>
@@ -134,7 +138,6 @@
             } else {
                 $(where).attr('src', '/assets/no_preview.png');
             }
-
         }
     </script>
     <script async defer

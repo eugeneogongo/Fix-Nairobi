@@ -12,13 +12,18 @@ class HomeController extends Controller
      * @return void
      */
 
+
+    public function index()
+    {
+        return view('index')->withTitle("Fix Nairobi");
+    }
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function admin()
     {
-        return view('index')->withTitle("Fix Nairobi");
+
     }
 }

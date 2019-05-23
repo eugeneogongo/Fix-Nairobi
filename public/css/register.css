@@ -26,12 +26,14 @@ body {
     font-size: 1.5rem;
 }
 
-.card-signin .card-img-left {
-    width: 45%;
+.bg-login-image {
+
     /* Link to your background image using in the property below! */
     background: scroll center url('../images/nairobilogo.png');
     background-size: contain;
     background-repeat: no-repeat;
+    transform: scale(0.9);
+
 }
 
 .card-signin .card-body {
