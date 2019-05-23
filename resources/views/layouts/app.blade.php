@@ -47,6 +47,11 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        @if(auth()->user()->isAdmin == 1)
+                            <li class="nav-item">
+                                <a class="btn btn-primary" href="{{route('admin')}}">Dashboard</a>
+                            </li>
+                        @endif
                         <li class="nav-item">
                             <a class="nav-link" href="#">About</a>
                         </li>
