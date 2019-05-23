@@ -41,11 +41,12 @@
                 <form id="newissue" action="/reportissue" method="post">
                     <div class="form-label-group">
                         <label for="location">Pick a location on the Map</label>
-                        <input type="text" disabled class="form-control" name="location" id="location"/>
+                        <input type="text" disabled class="form-control" name="location" id="location"
+                               value="Co-ordinates" required/>
                     </div>
                     <div class="form-label-group">
                         <label for="desc">Description of the Problem</label>
-                        <input type="text" class="form-control" name="desc"/>
+                        <input type="text" class="form-control" name="desc" required placeholder="Problem Description"/>
                     </div>
                     <p>Photos
                     <p/>
@@ -68,21 +69,22 @@
                     </div>
                     <div class="form-label-group">
                         <label for="issuetype">Type of the issue</label>
-                       <select class="form-control">
-                           @foreach($type_issues as $item)
-                               <option value="{{$item->item_id}}">{{$item->id}}</option>
-                           @endforeach
-                       </select>
-                    </div>
-                    <div class="form-label-group">
-                        <label for="landmark">Nearest LandMark</label>
-                        <input type="text" class="form-control" name="landmark"/>
-
+                        <select class="form-control">
+                            @foreach($type_issues as $item)
+                                <option value="{{$item->item_id}}">{{$item->desc}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-label-group">
                         <label for="location">Issue Location</label>
-                        <input type="text" class="form-control" name="location"/>
+                        <input type="text" class="form-control" placeholder="Nearest Location" name="location"/>
                     </div>
+                    <div class="form-label-group">
+                        <label for="landmark">Nearest LandMark</label>
+                        <input type="text" class="form-control" placeholder="LandMark" name="landmark" required/>
+
+                    </div>
+
                     <div class="form-label-group" style="margin-top: 10px">
                         <input type="submit" class="btn btn-outline-success form-control" value="Report">
                     </div>
