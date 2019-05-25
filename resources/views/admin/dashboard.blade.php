@@ -86,26 +86,39 @@
                         <div class="card shadow mb-4">
                             <!-- Card Header - Dropdown -->
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">New Issues</h6>
                                 <div class="dropdown no-arrow">
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                        <div class="dropdown-header">Dropdown Header:</div>
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
                                 </div>
                             </div>
                             <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="myAreaChart"></canvas>
-                                </div>
-                            </div>
+
+                                    <div class="container">
+
+
+                                    <div class="row">
+                                @php
+                                $problems  =\Illuminate\Support\Facades\DB::table('problems')
+                                ->select('problems.id as id','moredetails as detail','title','Location',"type_issues.desc",'path')
+                                ->join('issuestatus','problems.id','=','issuestatus.issueid')
+                                ->join("type_issues","type_issues.id","=","problems.issueid")
+                                ->join("photos",'problems.id','=','photos.issueid')
+                                ->where('status','=','not fixed')->limit(12)-> get();
+
+                                foreach ($problems as $prob){
+                                echo('<div class="card issuecard">');
+                                echo('
+                                <img class="card-img-top" src='.asset('images/'.$prob->path).' />
+                               <div class="card-body">
+                                <h5 class="card-title">'.$prob->title.'</h5> Was Reported at '.$prob->detail.'<br>
+                                <a href=viewissue/'.$prob->id.' class="btn btn-primary">View Issue</a>
+                          </div></div>');
+                                }
+                                @endphp
+                        </div>
+                    </div>
                         </div>
                     </div>
 

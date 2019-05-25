@@ -15,7 +15,7 @@
     <link href="{{ asset ('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
-
+    <link href="{{ asset ('css/dashboard.css')}}" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
     @yield('css')
@@ -321,7 +321,13 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{auth()->user()->name}}</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                @php
+                                   if(isset(auth()->user()->name)){
+                                   echo(auth()->user()->name);
+                                   }
+                                @endphp
+                            </span>
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -389,7 +395,8 @@
 <script src="{{asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="{{asset('/sb-admin-2.min.js')}}"></script>
+<script src="{{asset('js/sb-admin-2.min.js')}}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 @yield('scripts')
 

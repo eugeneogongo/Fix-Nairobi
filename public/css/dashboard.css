@@ -1,0 +1,27 @@
+/*.issuelist{
+    list-style: none;
+    margin: 0.25em 0 0;
+    padding: 0.5em 1em;
+    display: block;
+}
+.issuelist>li>a>img{
+    width: 90px;
+    float: right;
+    height: auto;
+    margin-left: 1em;
+}
+.issuelist>h3{
+    font-size: 1em;
+    font-weight: normal;
+    line-height: 1.5;
+    padding-top: 0.25em;
+    margin: 0;
+}*/
+
+.issuecard{
+    width: 200px;
+    margin: 10px;
+}
+.issuecard :hover{
+    background-color: lightblue;
+}

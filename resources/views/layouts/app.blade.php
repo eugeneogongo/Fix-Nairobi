@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -47,10 +46,12 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        @if (!Auth::guest())
                         @if(auth()->user()->isAdmin == 1)
                             <li class="nav-item">
                                 <a class="btn btn-primary" href="{{route('admin')}}">Dashboard</a>
                             </li>
+                        @endif
                         @endif
                         <li class="nav-item">
                             <a class="nav-link" href="#">About</a>
@@ -99,7 +100,13 @@
             @yield('content')
 
     </div>
-@include('layout.footer')
+    <script src="{{\Illuminate\Support\Facades\URL::asset('js/jquery.js')}}"></script>
+    <script src="{{\Illuminate\Support\Facades\URL::asset('js/app.js')}}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+@yield('scripts')
 </body>
 
 </html>
