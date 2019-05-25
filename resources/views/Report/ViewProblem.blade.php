@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends(isset(auth()->user()->isAdmin)?'layouts.adminmaster':'layouts.app')
 @section('css')
     <link href="{{\Illuminate\Support\Facades\URL::asset("css/mystyle.css")}}" rel="stylesheet"/>
     <link href="{{\Illuminate\Support\Facades\URL::asset("css/reportproblem.css")}}" rel="stylesheet"/>
@@ -11,8 +11,14 @@
         }
 
         .child {
-            flex: 1 0 20%; /* explanation below */
-            margin: 5px;
+            flex: 1 0 10%; /* explanation below */
+            margin: 1px;
+            height: 200px
+        }
+
+        .child > img {
+            height: 100px;
+            width: 100px;
         }
 
         .hide {
@@ -37,66 +43,42 @@
 @section('content')
     <div class="myrow">
         <div class="column-sm card">
+
             <div class="card-body">
-                <form id="newissue" action="{{route('reportproblem')}}" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-label-group">
-                        <label for="location">Pick a location on the Map</label>
-                        <input type="text" readonly class="form-control" name="location" id="location" required/>
-                    </div>
-                    <div class="form-label-group">
-                        <label for="desc">Description of the Problem</label>
-                        <input type="text" class="form-control" name="desc" required placeholder="Problem Description"/>
-                    </div>
-                    <p>Photos
-                    <p/>
-                    <div class="myflex">
-                        <div class="child">
+                <div class="form-label-group">
+                    <label><b>Title: </b>{{$problem[0]->Title}}</label>
 
-                            <input type="file" id="image1" name="image1" style="display: none;" accept="image/*"
-                                   class="form-control-file" name="imagepic" onchange="setImage(this,'#img1')"/>
-                            <img src="{{asset('images/placeholder.png')}}" id="img1" class="card-img-top bg"/>
-                            <label for="image1" class="btn btn-primary btn-block pushup">Choose an Image</label>
-
-                        </div>
-                        <div class="child">
-                            <input type="file" id="image2" name="image2" accept="image/*" class="form-control-file"
-                                   name="imagepic" style="display: none;" onchange="setImage(this,'#img2')"/>
-                            <img src="{{asset('images/placeholder.png')}}" id="img2" class="card-img-top bg"/>
-                            <label for="image2" class="btn btn-primary btn-block pushup">Choose an Image</label>
-
-                        </div>
+                </div>
+                <div class="form-label-group">
+                    <label><strong>Details: </strong>{{$problem[0]->moredetails}}</label>
+                </div>
+                <div class="form-label-group">
+                    <label><strong>Details: </strong>{{$problem[0]->moredetails}}</label>
+                </div>
+                <div class="form-label-group">
+                    <label><strong>Details: </strong>{{$problem[0]->moredetails}}</label>
+                </div>
+                <div class="form-label-group">
+                    <label><strong>Details: </strong>{{$problem[0]->moredetails}}</label>
+                </div>
+                <p>Photos
+                <p/>
+                <div class="myflex">
+                    <div class="child">
+                        <img src="{{asset('images/')}}/{{$problem[0]->path}}" id="img1" class="card-img-top bg"/>
                     </div>
-                    <div class="form-label-group">
-                        <label for="issuetype">Type of the issue</label>
-                        <select class="form-control" name="issueid">
-                            @foreach($type_issues as $item)
-                                <option value="{{$item->id}}">{{$item->desc}}</option>
-                            @endforeach
-                        </select>
+                    <div class="child">
+                        <img src="{{asset('images/')}}/{{$problem[1]->path}}" id="img2" class="card-img-top bg"/>
                     </div>
-                    <div class="form-label-group">
-                        <label for="location">Issue Location</label>
-                        <input type="text" class="form-control" placeholder="Nearest Location" name="moredetails"/>
-                    </div>
-                    <div class="form-label-group">
-                        <label for="landmark">Nearest LandMark</label>
-                        <input type="text" class="form-control" placeholder="LandMark" name="landmark" required/>
-
-                    </div>
-
-                    <div class="form-label-group" style="margin-top: 10px">
-                        <input type="submit" class="btn btn-outline-success form-control" value="Report">
-                    </div>
-
-                </form>
-
+                </div>
+                <div class="card-img-bottom">
+                    reported by {{$problem[0]->name}}
+                </div>
             </div>
         </div>
         <div id="map" class="column-lg card"></div>
     </div>
 @endsection
-
 @section('scripts')
 
     <script src="{{\Illuminate\Support\Facades\URL::asset('js/jquery.js')}}"></script>
@@ -165,15 +147,20 @@
 
 
             });
-        }
-
-        function placeMarkerAndPanTo(latLng, map) {
-            marker = new google.maps.Marker({
-                position: latLng,
-                map: map
+            google.maps.event.addListenerOnce(map, 'idle', function () {
+                var loca = "{{$problem[0]->location}}";
+                loca = loca.replace('(', "");
+                loca = loca.replace(')', "");
+                var coord = loca.split(',');
+                console.log(loca);
+                //pan to locatio
+                map.panTo(new google.maps.LatLng(coord[0], coord[1]));
+                //set to marker
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(coord[0], coord[1]),
+                    map: map
+                });
             });
-            document.getElementById('location').value = latLng;
-            initilized = true;
         }
 
         function setImage(input, where) {
@@ -199,4 +186,5 @@
 
 
 @endsection
+
 
