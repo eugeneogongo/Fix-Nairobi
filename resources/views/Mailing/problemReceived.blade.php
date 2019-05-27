@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
@@ -342,12 +342,20 @@
                                     <!--<![endif]-->
                                     <div align="center" class="img-container center autowidth" style="padding-right: 0px;padding-left: 0px;">
                                         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 0px;padding-left: 0px;" align="center"><![endif]-->
-                                        <div style="font-size:1px;line-height:25px"> </div><img align="center" alt="Image" border="0" class="center autowidth" src="images/cbbc7b42-ff97-4e59-95f1-b780febb6da2.png" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; border: 0; height: auto; float: none; width: 100%; max-width: 100px; display: block;" title="Image" width="100"/>
+                                        <div style="font-size:1px;line-height:25px"> </div>
+                                        <img align="center" alt="Image" border="0" class="center autowidth"
+                                             src="https://lh5.googleusercontent.com/3wdYTeCs8NjhV3RlFrHDDoAKVsDoAcpnO7f176t4pwe_YlOQcrsPn5FYlLY=w2400"
+                                             style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; border: 0; height: auto; float: none; width: 100%; max-width: 100px; display: block;"
+                                             title="Image" width="100"/>
                                         <!--[if mso]></td></tr></table><![endif]-->
                                     </div>
                                     <div align="center" class="img-container center autowidth fullwidth" style="padding-right: 30px;padding-left: 30px;">
                                         <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="line-height:0px"><td style="padding-right: 30px;padding-left: 30px;" align="center"><![endif]-->
-                                        <div style="font-size:1px;line-height:30px"> </div><img align="center" alt="Image" border="0" class="center autowidth fullwidth" src="images/thanks.jpg" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; border: 0; height: auto; float: none; width: 100%; max-width: 440px; display: block;" title="Image" width="440"/>
+                                        <div style="font-size:1px;line-height:30px"> </div>
+                                        <img align="center" alt="Image" border="0" class="center autowidth fullwidth"
+                                             src="https://lh4.googleusercontent.com/mYD6WtkOctiYMtGcHZ9Aa9uWWRSlftpJkLtXZ0Ad8_Zd3q-rQOzwMQEBZOI=w2400"
+                                             style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; border: 0; height: auto; float: none; width: 100%; max-width: 440px; display: block;"
+                                             title="Image" width="440"/>
                                         <div style="font-size:1px;line-height:30px"> </div>
                                         <!--[if mso]></td></tr></table><![endif]-->
                                     </div>
@@ -420,9 +428,20 @@
                                                 <table activate="activate" align="center" alignment="alignment" cellpadding="0" cellspacing="0" class="social_table" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: undefined; mso-table-tspace: 0; mso-table-rspace: 0; mso-table-bspace: 0; mso-table-lspace: 0;" to="to" valign="top">
                                                     <tbody>
                                                     <tr align="center" style="vertical-align: top; display: inline-block; text-align: center;" valign="top">
-                                                        <td style="word-break: break-word; vertical-align: top; padding-bottom: 5px; padding-right: 5px; padding-left: 5px; border-collapse: collapse;" valign="top"><a href="https://www.facebook.com/" target="_blank"><img alt="Facebook" height="32" src="images/facebook@2x.png" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; height: auto; float: none; border: none; display: block;" title="Facebook" width="32"/></a></td>
-                                                        <td style="word-break: break-word; vertical-align: top; padding-bottom: 5px; padding-right: 5px; padding-left: 5px; border-collapse: collapse;" valign="top"><a href="https://twitter.com/" target="_blank"><img alt="Twitter" height="32" src="images/twitter@2x.png" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; height: auto; float: none; border: none; display: block;" title="Twitter" width="32"/></a></td>
-                                                        <td style="word-break: break-word; vertical-align: top; padding-bottom: 5px; padding-right: 5px; padding-left: 5px; border-collapse: collapse;" valign="top"><a href="https://plus.google.com/" target="_blank"><img alt="Google+" height="32" src="images/googleplus@2x.png" style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; height: auto; float: none; border: none; display: block;" title="Google+" width="32"/></a></td>
+                                                        <td style="word-break: break-word; vertical-align: top; padding-bottom: 5px; padding-right: 5px; padding-left: 5px; border-collapse: collapse;"
+                                                            valign="top"><a href="https://www.facebook.com/"
+                                                                            target="_blank"><img alt="Facebook"
+                                                                                                 height="32"
+                                                                                                 src="https://lh6.googleusercontent.com/0XQnhKDNI2dA6e4DdjRPduM1GqPT0wm-xcb1MvTAjoyKAOhGMgbAlwnEdjk=w2400"
+                                                                                                 style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; height: auto; float: none; border: none; display: block;"
+                                                                                                 title="Facebook"
+                                                                                                 width="32"/></a></td>
+                                                        <td style="word-break: break-word; vertical-align: top; padding-bottom: 5px; padding-right: 5px; padding-left: 5px; border-collapse: collapse;"
+                                                            valign="top"><a href="https://twitter.com/" target="_blank"><img
+                                                                        alt="Twitter" height="32"
+                                                                        src="https://lh3.googleusercontent.com/TqtT0uW12gqrVyKNctXj3anHEKMLriMpDvoRc6XqRn1Enp5FAu_-Bmxx7Xc=w2400"
+                                                                        style="outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; clear: both; height: auto; float: none; border: none; display: block;"
+                                                                        title="Twitter" width="32"/></a></td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
