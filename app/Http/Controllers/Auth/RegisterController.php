@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace FixNairobi\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\User;
+use FixNairobi\Http\Controllers\Controller;
+use FixNairobi\Notifications\RegisterSuccess;
+use FixNairobi\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -69,4 +72,11 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+    protected function registered(Request $request, $user)
+    {
+        Notification::send($user, new RegisterSuccess($user));
+    }
+
+
 }

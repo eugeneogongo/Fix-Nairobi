@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace FixNairobi\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Jobs;
+namespace FixNairobi\Jobs;
 
-use App\Mail\ProblemReported;
+use FixNairobi\Mail\ProblemReported;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;

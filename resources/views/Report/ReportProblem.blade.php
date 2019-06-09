@@ -15,13 +15,6 @@
             margin: 5px;
         }
 
-        .hide {
-            visibility: hidden;
-        }
-
-        .visible {
-            visibility: visible;
-        }
 
         .bg {
             background: grey;
@@ -35,6 +28,9 @@
     </style>
 @endsection
 @section('content')
+     @component('Components.progress')
+
+         @endcomponent
     <div class="myrow">
         <div class="column-sm card">
             <div class="card-body">
@@ -107,6 +103,8 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script rel="script">
         $(document).ready(function () {
+            //hide loader
+            $("#loader").css("visibility","hidden");
             $('#newissue').submit(function (e) {
                 e.preventDefault();
                 var formdata = new FormData(this);

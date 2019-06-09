@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace FixNairobi\Http\Controllers;
 
-use App\IssueStatus;
-use App\Jobs\SendAckEmail;
-use App\Photo;
-use App\Problem;
-use App\TypeIssues;
+use FixNairobi\IssueStatus;
+use FixNairobi\Jobs\SendAckEmail;
+use FixNairobi\Photo;
+use FixNairobi\Problem;
+use FixNairobi\TypeIssues;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -49,7 +49,7 @@ class ReportController extends Controller
             $issuestatus->save();
 
             //Send Acknowledgement Email
-            $this->dispatch(new SendAckEmail());
+            SendAckEmail::dispatch(new SendAckEmail());
             return response()->json(["status" => "success"]);
 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace FixNairobi\Http\Controllers;
 
 class HomeController extends Controller
 {
@@ -12,7 +12,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('index')->withTitle("Fix Nairobi");
+        return view('index')->withTitle("FixNairobi");
     }
 
 }

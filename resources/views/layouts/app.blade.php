@@ -9,7 +9,7 @@
     <title>@if(@isset($title))
     {{$title}}
     @else
-    {{_('Fix Nairobi')}}
+    {{_('FixNairobi')}}
     @endif</title>
 
     <!-- Scripts -->
@@ -32,7 +32,7 @@
         <nav class="navbar navbar-expand-md  shadow-sm bg-nav">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                 Fix Nairobi
+                 FixNairobi
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>

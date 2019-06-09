@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace FixNairobi\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 

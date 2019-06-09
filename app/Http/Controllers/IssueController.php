@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace FixNairobi\Http\Controllers;
 
-use App\TypeIssues;
+use FixNairobi\TypeIssues;
 use Exception;
 use Illuminate\Http\Request;
 
