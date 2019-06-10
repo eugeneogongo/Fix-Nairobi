@@ -52,7 +52,8 @@ h1 {
 }
 /*HOme*/
 .content-Home{
-    margin-top: -2em;
+    margin-top: -4em;
+    margin-bottom: 1em;
 }
 .tablewrapper{
     display: table;
@@ -68,7 +69,7 @@ h1 {
     margin: 10px ;
 }
 .problem-list > li{
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 /*Home */
 @media only screen and (max-width: 600px) {
@@ -100,6 +101,22 @@ h1 {
     }
     .problem-list > li{
         margin-bottom: 1em;
+    }
+
+    .tablewrapper {
+        display: block;
+        width: 100%;
+        padding: 0 0 1em;
+        table-layout: fixed;
+    }
+
+    .tablewrapper > div {
+        display: block;
+        width: 100%;
+    }
+
+    .content-Home {
+        margin-top: -1em;
     }
 }
 
@@ -187,3 +204,4 @@ h1 {
         transform: rotate(360deg);
     }
 }
+

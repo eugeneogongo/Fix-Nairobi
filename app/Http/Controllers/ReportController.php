@@ -4,11 +4,13 @@ namespace FixNairobi\Http\Controllers;
 
 use FixNairobi\IssueStatus;
 use FixNairobi\Jobs\SendAckEmail;
+use FixNairobi\Mail\ProblemReported;
 use FixNairobi\Photo;
 use FixNairobi\Problem;
 use FixNairobi\TypeIssues;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ReportController extends Controller
 {
@@ -49,7 +51,7 @@ class ReportController extends Controller
             $issuestatus->save();
 
             //Send Acknowledgement Email
-            SendAckEmail::dispatch(new SendAckEmail());
+            Mail::queue(new ProblemReported());
             return response()->json(["status" => "success"]);
 
 
