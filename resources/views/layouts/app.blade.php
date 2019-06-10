@@ -96,8 +96,12 @@
             </div>
         </nav>
 
-
             @yield('content')
+
+        <section>
+            @component('components.footer')
+            @endcomponent
+        </section>
 
     </div>
     <script src="{{\Illuminate\Support\Facades\URL::asset('js/jquery.js')}}"></script>
