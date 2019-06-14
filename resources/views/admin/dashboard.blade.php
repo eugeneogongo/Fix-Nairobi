@@ -101,7 +101,7 @@
                                     <div class="row">
                                 @php
                                 $problems  =\Illuminate\Support\Facades\DB::table('problems')
-                                ->select('problems.id as id','moredetails as detail','title','Location',"Type_issues.desc",'path')
+                                ->select('problems.id as id','moredetails as detail','Title','Location',"Type_issues.desc",'path')
                                 ->join('IssueStatus','problems.id','=','IssueStatus.issueid')
                                 ->join("Type_issues","Type_issues.id","=","problems.issueid")
                                 ->join("photos",'problems.id','=','photos.issueid')
@@ -112,7 +112,7 @@
                                 echo('
                                 <img class="card-img-top" src='.asset('images/'.$prob->path).' />
                                <div class="card-body">
-                                <h5 class="card-title">'.$prob->title.'</h5> Was Reported at '.$prob->detail.'<br>
+                                <h5 class="card-title">'.$prob->Title.'</h5> Was Reported at '.$prob->detail.'<br>
                                 <a href=viewissue/'.$prob->id.' class="btn btn-primary">View Issue</a>
                           </div></div>');
                                 }
