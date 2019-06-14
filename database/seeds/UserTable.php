@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UserTable extends Seeder
 {
@@ -12,11 +13,11 @@ class UserTable extends Seeder
     public function run()
     {
         //
-        $user = new \FixNairobi\User();
-        $user->name="eugene ogongo";
-        $user->email="eugeneogongo@live.com";
-        $user->isAdmin = 1;
-        $user->password = \Illuminate\Support\Facades\Hash::make('eugene2001');
-        $user->save();
+       DB::table('users')->insert([
+           'name'=>'eugene ogongo',
+           'email'=>'eugeneogongo@live.com',
+           'password'=>'12345678',
+           'isAdmin'=>1
+       ]);
     }
 }
