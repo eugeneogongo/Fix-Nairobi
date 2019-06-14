@@ -81,7 +81,7 @@
                             ->join('IssueStatus','problems.id','=','IssueStatus.issueid')
                             ->join("Type_issues","Type_issues.id","=","problems.issueid")
                             ->join("photos",'problems.id','=','photos.issueid')
-                            ->where('status','=','not fixed')->limit(4)-> get();
+                            ->where('status','=','Not Fixed')->limit(4)-> get();
 
                             foreach ($problems as $prob){
                             echo('<a href=/viewissue/'.$prob->id.'>');
