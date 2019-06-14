@@ -17,5 +17,6 @@ class UserTable extends Seeder
         $user->email="eugeneogongo@live.com";
         $user->isAdmin = 1;
         $user->password = \Illuminate\Support\Facades\Hash::make('eugene2001');
+        $user->save();
     }
 }
