@@ -77,7 +77,7 @@
 
                         @php
                             use Illuminate\Support\Facades\DB;$problems  =DB::table('problems')
-                            ->select('problems.id as id','moredetails as detail','title','Location',"type_issues.desc",'path','problems.created_at as publisheddat')
+                            ->select('problems.id as id','moredetails as detail','Title','Location',"Type_issues.desc",'path','problems.created_at as publisheddat')
                             ->join('IssueStatus','problems.id','=','IssueStatus.issueid')
                             ->join("Type_issues","Type_issues.id","=","problems.issueid")
                             ->join("photos",'problems.id','=','photos.issueid')
