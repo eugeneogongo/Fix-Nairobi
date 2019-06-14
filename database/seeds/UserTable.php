@@ -16,7 +16,7 @@ class UserTable extends Seeder
        DB::table('users')->insert([
            'name'=>'eugene ogongo',
            'email'=>'eugeneogongo@live.com',
-           'password'=>'12345678',
+           'password'=>\Illuminate\Support\Facades\Hash::make("12345678"),
            'isAdmin'=>1
        ]);
     }
