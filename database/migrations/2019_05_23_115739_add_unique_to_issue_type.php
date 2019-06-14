@@ -13,7 +13,7 @@ class AddUniqueToIssueType extends Migration
      */
     public function up()
     {
-        Schema::table('type_issues',function (Blueprint $table){
+        Schema::table('Type_issues',function (Blueprint $table){
         $table->string('desc')->unique()->nullable(false)->change();
         });
     }

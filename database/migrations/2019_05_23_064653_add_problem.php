@@ -24,7 +24,7 @@ class AddProblem extends Migration
             $table->string('landmark');
             $table->string('moredetails');
             $table->timestamps();
-            $table->foreign('issueid')->references('id')->on('type_issues');
+            $table->foreign('issueid')->references('id')->on('Type_issues');
             $table->foreign('userid')->references('id')->on('users');
         });
 

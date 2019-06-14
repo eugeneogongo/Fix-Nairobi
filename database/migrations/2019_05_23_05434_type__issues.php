@@ -27,6 +27,6 @@ class TypeIssues extends Migration
      */
     public function down()
     {
-        Schema::drop('type_issues');
+        Schema::drop('Type_issues');
     }
 }
