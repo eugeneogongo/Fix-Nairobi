@@ -101,7 +101,7 @@
                                     <div class="row">
                                 @php
                                 $problems  =\Illuminate\Support\Facades\DB::table('problems')
-                                ->select('problems.id as id','moredetails as detail','Title','Location',"Type_issues.desc",'path')
+                                ->select('problems.id as id','moredetails as detail','Title','location',"Type_issues.desc",'path')
                                 ->join('IssueStatus','problems.id','=','IssueStatus.issueid')
                                 ->join("Type_issues","Type_issues.id","=","problems.issueid")
                                 ->join("photos",'problems.id','=','photos.issueid')
