@@ -38,7 +38,7 @@ class ReportController extends Controller
             $problem->issueid = $request->get('issueid');
             $problem->landmark = $request->get('landmark');
             $problem->moredetails = $request->get('moredetails');
-            $problem->title = $request->get('desc');
+            $problem->Title = $request->get('desc');
             $problem->save();
 
 
