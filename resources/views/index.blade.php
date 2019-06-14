@@ -88,7 +88,7 @@
                             echo('
                             <div>
                              <img style="float:right;width:90px;height:60px;margin-left: 1em;" src='.asset('images/'.$prob->path).' />
-                             '.$prob->title.' Was Reported at '.$prob->detail.'</br>
+                             '.$prob->Title.' Was Reported at '.$prob->detail.'</br>
                              <small>'.$prob->publisheddat.'</small>
                              </div>
                          </a>

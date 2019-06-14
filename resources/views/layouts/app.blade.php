@@ -99,7 +99,7 @@
             @yield('content')
 
         <section>
-            @component('components.footer')
+            @component('layouts.footer')
             @endcomponent
         </section>
 
