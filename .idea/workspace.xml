@@ -128,7 +128,7 @@
         <entry file="file://$PROJECT_DIR$/database/seeds/UserTable.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="18" column="71" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
+              <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
               <folding>
                 <element signature="e#7#38#0#PHP" expanded="true" />
               </folding>
@@ -446,7 +446,7 @@
       <workItem from="1560175376596" duration="3109000" />
       <workItem from="1560235359290" duration="3044000" />
       <workItem from="1560239415265" duration="611000" />
-      <workItem from="1560503448335" duration="12821000" />
+      <workItem from="1560503448335" duration="12961000" />
     </task>
     <task id="LOCAL-00001" summary="Register page added">
       <created>1557738688762</created>
@@ -627,7 +627,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169557000" />
+    <option name="totallyTimeSpent" value="169697000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -658,7 +658,7 @@
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32872504" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32872504" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32872504" />
-      <window_info anchor="bottom" auto_hide="true" id="Terminal" order="12" weight="0.22273426" />
+      <window_info anchor="bottom" auto_hide="true" id="Terminal" order="12" weight="0.7511521" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="13" weight="0.32872504" />
       <window_info anchor="bottom" id="Database Console" order="14" weight="0.32872504" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1072,7 +1072,7 @@
     <entry file="file://$PROJECT_DIR$/database/seeds/UserTable.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="18" column="71" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
+          <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
           <folding>
             <element signature="e#7#38#0#PHP" expanded="true" />
           </folding>
