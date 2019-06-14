@@ -101,9 +101,9 @@
                                     <div class="row">
                                 @php
                                 $problems  =\Illuminate\Support\Facades\DB::table('problems')
-                                ->select('problems.id as id','moredetails as detail','title','Location',"type_issues.desc",'path')
-                                ->join('issuestatus','problems.id','=','issuestatus.issueid')
-                                ->join("type_issues","type_issues.id","=","problems.issueid")
+                                ->select('problems.id as id','moredetails as detail','title','Location',"Type_issues.desc",'path')
+                                ->join('IssueStatus','problems.id','=','IssueStatus.issueid')
+                                ->join("Type_issues","Type_issues.id","=","problems.issueid")
                                 ->join("photos",'problems.id','=','photos.issueid')
                                 ->where('status','=','not fixed')->limit(12)-> get();
 
