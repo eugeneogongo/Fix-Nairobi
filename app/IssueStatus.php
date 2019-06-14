@@ -8,5 +8,5 @@ class IssueStatus extends Model
 {
     //
 
-    protected $table = 'issuestatus';
+    protected $table = 'IssueStatus';
 }

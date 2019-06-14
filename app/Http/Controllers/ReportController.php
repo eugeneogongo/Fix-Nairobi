@@ -47,9 +47,9 @@ class ReportController extends Controller
             $this->saveImage($problem->id, $request, 'image2');
 
             //Use default status of not fixed
-            $issuestatus = new IssueStatus();
-            $issuestatus->issueid = $problem->id;
-            $issuestatus->save();
+            DB::table("IssueStatus")->insert([
+                "issueid"=> $problem->id
+            ]);
 
             //Send Acknowledgement Email SendA(new SendAckEmail());
             SendAckEmail::dispatchNow(new SendAckEmail());
