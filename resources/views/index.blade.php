@@ -79,7 +79,7 @@
                             use Illuminate\Support\Facades\DB;$problems  =DB::table('problems')
                             ->select('problems.id as id','moredetails as detail','title','Location',"type_issues.desc",'path','problems.created_at as publisheddat')
                             ->join('IssueStatus','problems.id','=','IssueStatus.issueid')
-                            ->join("type_issues","type_issues.id","=","problems.issueid")
+                            ->join("Type_issues","Type_issues.id","=","problems.issueid")
                             ->join("photos",'problems.id','=','photos.issueid')
                             ->where('status','=','not fixed')->limit(4)-> get();
 
