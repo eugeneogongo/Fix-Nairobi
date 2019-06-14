@@ -24,7 +24,7 @@ class ReportController extends Controller
     //
     public  function  Show(){
         $type_issues = TypeIssues::all();
-        return view('layouts.Reportproblem', compact('type_issues',$type_issues))->withTitle('Report a Problem');
+        return view('Report.ReportProblem', compact('type_issues',$type_issues))->withTitle('Report a Problem');
 
     }
 

@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0e4b68e-c99c-4fe4-a084-def773bce778" name="Default Changelist" comment="Margin for Report Table changed and made to be block in responsive web">
-      <change beforePath="$PROJECT_DIR$/.idea/Fix Nairobi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Fix Nairobi.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReportController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Report/ReportProblem.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/ReportProblem.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Report/ViewProblem.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/ViewProblem.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/ReportProblem.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Report/ReportProblem.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/ViewProblem.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Report/ViewProblem.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,8 +81,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReportController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+            <state relative-caret-position="64">
+              <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
               <folding>
                 <element signature="e#47#74#0#PHP" expanded="true" />
               </folding>
@@ -117,7 +114,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/ReportProblem.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/Report/ReportProblem.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="592">
               <caret line="147" selection-start-line="147" selection-end-line="147" />
@@ -377,13 +374,6 @@
               <item name="untitled" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Fix Nairobi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="untitled" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="Report" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -460,7 +450,7 @@
       <workItem from="1560175376596" duration="3109000" />
       <workItem from="1560235359290" duration="3044000" />
       <workItem from="1560239415265" duration="611000" />
-      <workItem from="1560503448335" duration="10225000" />
+      <workItem from="1560503448335" duration="10509000" />
     </task>
     <task id="LOCAL-00001" summary="Register page added">
       <created>1557738688762</created>
@@ -641,7 +631,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166961000" />
+    <option name="totallyTimeSpent" value="167245000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1059,7 +1049,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/ReportProblem.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/Report/ReportProblem.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="592">
           <caret line="147" selection-start-line="147" selection-end-line="147" />
@@ -1085,8 +1075,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReportController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+        <state relative-caret-position="64">
+          <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
           <folding>
             <element signature="e#47#74#0#PHP" expanded="true" />
           </folding>
