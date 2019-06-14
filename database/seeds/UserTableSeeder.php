@@ -2,8 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
-class UserTable extends Seeder
+class UserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +17,7 @@ class UserTable extends Seeder
        DB::table('users')->insert([
            'name'=>'eugene ogongo',
            'email'=>'eugeneogongo@live.com',
-           'password'=>bcrypt("12345678"),
+           'password'=>Hash::make ("12345678"),
            'isAdmin'=>1
        ]);
     }
