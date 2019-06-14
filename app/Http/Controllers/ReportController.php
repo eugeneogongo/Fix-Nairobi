@@ -10,7 +10,7 @@ use FixNairobi\Problem;
 use FixNairobi\TypeIssues;
 use Exception;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 
 class ReportController extends Controller
@@ -71,9 +71,10 @@ class ReportController extends Controller
             $name = time() . ' ' . $image->getClientOriginalName();
             $destinationPath = public_path('/images');
             $image->move($destinationPath, $name);
-            $pic->path = $name;
-            $pic->issueid = $id;
-            $pic->save();
+            DB::table('photos')->insert([
+                "path"=>$name,
+               "issueid"=>$id
+            ]);
         }
 
     }
