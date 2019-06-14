@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TypeIssues extends Model
 {
     //set table name
-    protected $table = "type_issues";
+    protected $table = "Type_issues";
     protected $fillable=["desc"];
 
 }
