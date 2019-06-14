@@ -28,6 +28,6 @@ class IssueStatus extends Migration
      */
     public function down()
     {
-        Schema::drop('issuestatus');
+        Schema::drop('IssueStatus');
     }
 }
