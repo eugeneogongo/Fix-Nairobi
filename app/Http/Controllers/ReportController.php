@@ -10,7 +10,8 @@ use FixNairobi\Problem;
 use FixNairobi\TypeIssues;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+
+
 
 class ReportController extends Controller
 {
@@ -50,8 +51,9 @@ class ReportController extends Controller
             $issuestatus->issueid = $problem->id;
             $issuestatus->save();
 
-            //Send Acknowledgement Email
-            Mail::queue(new ProblemReported());
+            //Send Acknowledgement Email SendA(new SendAckEmail());
+            SendAckEmail::dispatchNow(new SendAckEmail());
+
             return response()->json(["status" => "success"]);
 
 

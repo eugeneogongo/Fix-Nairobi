@@ -42,7 +42,6 @@ class RegisterSuccess extends Notification
         return (new MailMessage)
             ->success()
             ->from('info@fix.com', "FixNairobi Team")
-            ->greeting("Hello")
             ->subject('Welcome')
             ->line('Dear ' . $this->user->name . ', We are glad to see you here.')
             ->line('Thank you for joining FixNairobi!')

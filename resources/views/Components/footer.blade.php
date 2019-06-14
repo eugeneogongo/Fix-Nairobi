@@ -134,7 +134,7 @@
     <!-- Footer Links -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center text-black-50 py-3" style="background-color: grey">© 2018 Copyright:
+    <div class="footer-copyright text-center text-black-50 py-3" style="background-color: grey">© 2019 Copyright:
         <a class="dark-grey-text" href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
     </div>
     <!-- Copyright -->
