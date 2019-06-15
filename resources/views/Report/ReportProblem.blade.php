@@ -74,7 +74,7 @@
                     </div>
                     <div class="form-label-group">
                         <label for="landmark">Nearest LandMark</label>
-                        <input type="text" class="form-control" placeholder="LandMark" name="landmark" required/>
+                        <input type="text" id="landmark" class="form-control" placeholder="LandMark" name="landmark" required/>
 
                     </div>
 
@@ -141,12 +141,12 @@
         });
     </script>
     <script>
-        var marker;
-        var images = [];
-        var initilized = false;
+        let marker;
+        let images = [];
+        let initilized = false;
 
         function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
+            let map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 16,
                 center: {lat: -1.28333, lng: 36.8219}
             });
@@ -171,10 +171,10 @@
         }
 
         function setImage(input, where) {
-            var url = input.value;
-            var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+            let url = input.value;
+            let ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
             if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
-                var reader = new FileReader();
+                let reader = new FileReader();
 
                 reader.onload = function (e) {
                     $(where).attr('src', e.target.result);
