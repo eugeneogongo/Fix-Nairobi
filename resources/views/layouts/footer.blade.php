@@ -53,58 +53,43 @@
         <div class="row mt-3 dark-grey-text">
 
             <!-- Grid column -->
-            <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+            <div class="col-md-3 col-lg-3 col-xl-3 mb-4">
 
                 <!-- Content -->
-                <h6 class="text-uppercase font-weight-bold">Company name</h6>
+                <h6 class="text-uppercase font-weight-bold">Nairobi County Government</h6>
                 <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                    consectetur
-                    adipisicing elit.</p>
+                <img src="https://epayments.nairobi.go.ke/public/img/logo/nairobi-city-county-logo.png"
+                     alt="Nairobi county logo" width=200/>
 
             </div>
             <!-- Grid column -->
 
             <!-- Grid column -->
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-                <!-- Links -->
-                <h6 class="text-uppercase font-weight-bold">Products</h6>
-                <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <p>
-                    <a class="dark-grey-text" href="#!">MDBootstrap</a>
-                </p>
-                <p>
-                    <a class="dark-grey-text" href="#!">MDWordPress</a>
-                </p>
-                <p>
-                    <a class="dark-grey-text" href="#!">BrandFlow</a>
-                </p>
-                <p>
-                    <a class="dark-grey-text" href="#!">Bootstrap Angular</a>
-                </p>
-
-            </div>
-            <!-- Grid column -->
 
             <!-- Grid column -->
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <div class="col-md-3 col-lg-6 col-xl-6 mx-auto mb-4">
 
                 <!-- Links -->
-                <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+                <h6 class="text-uppercase font-weight-bold">Useful Contacts</h6>
                 <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <p>
-                    <a class="dark-grey-text" href="#!">Your Account</a>
+                    <a href="tel:999">Kenya Police Hotlines <strong>999</strong></a>
                 </p>
+                <hr>
                 <p>
-                    <a class="dark-grey-text" href="#!">Become an Affiliate</a>
+                    <a href="tel: 020-2222181">
+                        Fire and Ambulance Services<strong>
+                            020-2222181</strong>
+                    </a>
                 </p>
+                <hr>
                 <p>
-                    <a class="dark-grey-text" href="#!">Shipping Rates</a>
+                    <a href="tel:116">
+                        Childline Kenya
+                        <strong>
+                            Call 116</strong></a>
                 </p>
-                <p>
-                    <a class="dark-grey-text" href="#!">Help</a>
-                </p>
+                <hr>
 
             </div>
             <!-- Grid column -->
@@ -116,14 +101,12 @@
                 <h6 class="text-uppercase font-weight-bold">Contact</h6>
                 <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                 <p>
-                    <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+                    <i class="fas fa-home mr-3"></i> City Hall, Nairobi</p>
                 <p>
-                    <i class="fas fa-envelope mr-3"></i> info@example.com</p>
+                    <i class="fas fa-envelope mr-3"></i> info@nairobi.go.ke.</p>
                 <p>
-                    <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                    <i class="fas fa-phone mr-3"></i> (020)2222821</p>
                 <p>
-                    <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
-
             </div>
             <!-- Grid column -->
 
@@ -135,7 +118,7 @@
 
     <!-- Copyright -->
     <div class="footer-copyright text-center text-black-50 py-3" style="background-color: grey">© 2019 Copyright:
-        <a class="dark-grey-text" href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+        <a class="dark-grey-text" href="#">Eugene Ogongo Odera</a>
     </div>
     <!-- Copyright -->
 
