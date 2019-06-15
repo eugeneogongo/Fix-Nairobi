@@ -71,8 +71,8 @@
                     </div>
                 </div>
             </div>
-            <div>
-                <h1>Recent Issues Reported</h1>
+            <div class="divline">
+                <h1>Recent Reported Issues</h1>
                 <div class="container">
 
                         @php

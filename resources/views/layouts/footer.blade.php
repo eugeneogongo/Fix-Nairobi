@@ -58,8 +58,9 @@
                 <!-- Content -->
                 <h6 class="text-uppercase font-weight-bold">Nairobi County Government</h6>
                 <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                <img src="https://epayments.nairobi.go.ke/public/img/logo/nairobi-city-county-logo.png"
-                     alt="Nairobi county logo" width=200/>
+                <p><img class="card-img"
+                        src="https://epayments.nairobi.go.ke/public/img/logo/nairobi-city-county-logo.png"
+                        alt="Nairobi county logo" width=200/></p>
 
             </div>
             <!-- Grid column -->
