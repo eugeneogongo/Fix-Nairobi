@@ -80,8 +80,10 @@ h1 {
     cursor: pointer;
 }
 #report{
-    color: #222;
-    background:darkcyan;
+    color: white;
+    background-image: url('./../images/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 300px;
     padding: 2em;
 }
@@ -89,7 +91,7 @@ h1 {
     font-style: italic;
     font-family: Helmet,Freesans,sans-serif;
     font-size: 1.1875em;
-    color: #4d4d4d;
+    color: white;
 }
 #report h1{
     font-size: 3em;
