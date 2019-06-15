@@ -12,15 +12,26 @@
 
         <!-- Styles -->
         <style>
+
             html, body {
                 background-color: #fff;
-                color: #636b6f;
+                color: black;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
             }
 
+            .btn {
+                background-color: #4CAF50; /* Green */
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+            }
             .full-height {
                 height: 100vh;
             }
@@ -40,6 +51,7 @@
                 font-size: 26px;
                 padding: 0 15px 0 15px;
                 text-align: center;
+
             }
 
             .message {
@@ -49,13 +61,19 @@
         </style>
     </head>
     <body>
+
         <div class="flex-center position-ref full-height">
+            <img class="card-img"
+                 src="https://epayments.nairobi.go.ke/public/img/logo/nairobi-city-county-logo.png"
+                 alt="Nairobi county logo" width=200/>
             <div class="code">
                 @yield('code')
             </div>
-
-            <div class="message" style="padding: 10px;">
+            <div class="message code" style="padding: 10px;">
                 @yield('message')
+            </div>
+            <div class="code">
+                <a href="/home" class="btn"> Go Home</a>
             </div>
         </div>
     </body>
