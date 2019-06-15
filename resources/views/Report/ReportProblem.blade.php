@@ -28,9 +28,6 @@
     </style>
 @endsection
 @section('content')
-     @component('Components.progress')
-
-         @endcomponent
     <div class="myrow">
         <div class="column-sm card">
             <div class="card-body">
@@ -104,17 +101,16 @@
     <script rel="script">
         $(document).ready(function () {
             //hide loader
-            $("#loader").css("visibility","hidden");
             $('#newissue').submit(function (e) {
                 e.preventDefault();
-                var formdata = new FormData(this);
+                let formdata = new FormData(this);
                 if (document.getElementById('location').value == "") {
                     swal("Pick Location", "Pick a location on the map", "error");
                     document.getElementById('map').scrollIntoView();
                     return;
                 }
-                var form = $(this);
-                var url = form.attr('action');
+                let form = $(this);
+                let url = form.attr('action');
 
                 $.ajax({
                     type: "POST",
