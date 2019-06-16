@@ -53,14 +53,12 @@
                     <label><strong>Details: </strong>{{$problem[0]->moredetails}}</label>
                 </div>
                 <div class="form-label-group">
-                    <label><strong>Details: </strong>{{$problem[0]->moredetails}}</label>
+                    <label><strong>LandMark: </strong>{{$problem[0]->landmark}}</label>
                 </div>
                 <div class="form-label-group">
-                    <label><strong>Details: </strong>{{$problem[0]->moredetails}}</label>
+                    <label><strong>IssuesStatus: </strong>{{$problem[0]->status}}</label>
                 </div>
-                <div class="form-label-group">
-                    <label><strong>Details: </strong>{{$problem[0]->moredetails}}</label>
-                </div>
+                <hr>
                 <p>Photos
                 <p/>
                 <div class="myflex">
@@ -72,8 +70,14 @@
                     </div>
                 </div>
                 <div class="card-img-bottom">
-                    reported by {{$problem[0]->name}}
+                    reported by <strong> {{$problem[0]->name}} </strong>at <small> {{$problem[0]->created_at}}</small>
                 </div>
+                @if(auth()->user()->isAdmin)
+                    <form>
+
+                    </form>
+                    @endif
+
             </div>
         </div>
         <div id="map" class="column-lg card"></div>

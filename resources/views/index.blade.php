@@ -90,6 +90,9 @@
                              <img style="float:right;width:90px;height:60px;margin-left: 1em;" src="'.asset('images/'.$prob->path).'" alt='.$prob->Title.' Image'.' />
                              '.$prob->Title.' Was Reported at '.$prob->detail.'</br>
                              <small>'.$prob->publisheddat.'</small>
+                             <form>
+
+                             </form>
                              </div>
                          </a>
                          <hr>');

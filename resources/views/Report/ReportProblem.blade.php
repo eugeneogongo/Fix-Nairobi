@@ -24,28 +24,44 @@
             margin-top: -10px;
             position: relative;
         }
-
+        ul {
+            list-style: none;
+        }
+        #dos ul li:before {
+            content: '✓ ';
+        }
+        #donts ul li:before{
+            content: 'x ';
+        }
     </style>
 @endsection
 @section('content')
     <div class="myrow">
         <div class="column-sm card">
             <div class="card-body">
+                <h3>Report your Problem</h3>
                 <form id="newissue" action="{{route('reportproblem')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-label-group">
-                        <label for="location">Pick a location on the Map</label>
-                        <input type="text" readonly class="form-control" name="location" id="location" required/>
+                        <label for="location">Click the map or drag the pin to adjust the location</label>
+                        <input type="text" hidden class="form-control" name="location" id="location" required/>
                     </div>
                     <div class="form-label-group">
-                        <label for="desc">Description of the Problem</label>
-                        <input type="text" class="form-control" name="desc" required placeholder="Problem Description"/>
+                        <label for="issuetype">Category</label>
+                        <select class="form-control" id="issuetype" name="issueid">
+                            @foreach($type_issues as $item)
+                                <option value="{{$item->id}}">{{$item->desc}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-label-group">
+                        <label for="desc">Summarise the Problem <br><small class="text-info">eg Pothhole along Moi Avenue, Near Koja</small></label>
+                        <input type="text" class="form-control" name="desc" required placeholder="Problem Title"/>
                     </div>
                     <p>Photos
                     <p/>
-                    <div class="myflex">
+                    <div class="myflex" style="overflow: auto;">
                         <div class="child">
-
                             <input type="file" id="image1" name="image1" style="display: none;" accept="image/*"
                                    class="form-control-file" name="imagepic" onchange="setImage(this,'#img1')"/>
                             <img src="{{asset('images/placeholder.png')}}" id="img1" class="card-img-top bg"/>
@@ -60,22 +76,31 @@
 
                         </div>
                     </div>
-                    <div class="form-label-group">
-                        <label for="issuetype">Type of the issue</label>
-                        <select class="form-control" name="issueid">
-                            @foreach($type_issues as $item)
-                                <option value="{{$item->id}}">{{$item->desc}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-label-group">
-                        <label for="location">Issue Location</label>
-                        <input type="text" class="form-control" placeholder="Nearest Location" name="moredetails"/>
+                    <div class="form-group shadow-textarea">
+                        <label for="exampleFormControlTextarea6">Explain what’s wrong</label>
+                        <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" name="moredetails" rows="3" placeholder="e.g. This pothole has been here for two months and…"></textarea>
+
+                        <small>
+                            <div class="d-flex flex-row form-text text-muted" style="margin-right: -30px">
+                                <div class="p-2" id="dos">
+                                    <ul  class="list-group text-success">
+                                        <li>Be polite</li>
+                                        <li>Use exact locations</li>
+                                        <li>Include duration of the Issue</li>
+                                    </ul>
+                                </div>
+                                <div class="p-2" id="donts">
+                                    <ul class="list-group text-danger">
+                                        <li>Don’t accuse other people</li>
+                                        <li>Don’t include private details</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </small>
                     </div>
                     <div class="form-label-group">
                         <label for="landmark">Nearest LandMark</label>
-                        <input type="text" id="landmark" class="form-control" placeholder="LandMark" name="landmark" required/>
-
+                        <input type="text" id="landmark" class="form-control" placeholder="e.g Koja Roundabout or Kencom" name="landmark" required/>
                     </div>
 
                     <div class="form-label-group" style="margin-top: 10px">
@@ -104,7 +129,7 @@
             $('#newissue').submit(function (e) {
                 e.preventDefault();
                 let formdata = new FormData(this);
-                if (document.getElementById('location').value == "") {
+                if (document.getElementById('location').value === "") {
                     swal("Pick Location", "Pick a location on the map", "error");
                     document.getElementById('map').scrollIntoView();
                     return;
@@ -121,7 +146,7 @@
                     data: formdata, // serializes the form's elements.
                     success: function (data) {
                         console.log(data.status);
-                        if (data.status == 'success') {
+                        if (data.status === 'success') {
                             swal("Good job!", "Your problem was submitted", "success");
                             document.getElementById("newissue").reset();
                         } else {
@@ -173,7 +198,7 @@
         function setImage(input, where) {
             let url = input.value;
             let ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
-            if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+            if (input.files && input.files[0] && (ext === "gif" || ext === "png" || ext === "jpeg" || ext === "jpg")) {
                 let reader = new FileReader();
 
                 reader.onload = function (e) {

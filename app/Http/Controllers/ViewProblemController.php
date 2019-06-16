@@ -18,4 +18,9 @@ class ViewProblemController extends Controller
             ->where('problems.id', '=', $id)->limit(2)->get();
         return view('Report.ViewProblem')->with("problem", $problem);
     }
+    public function  issueFixed($id){
+        DB::table('IssueStatus')->where('issueid','=',$id)->update([
+           'status'=>"Fixed"
+        ]);
+    }
 }
