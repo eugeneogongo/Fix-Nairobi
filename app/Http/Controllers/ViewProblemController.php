@@ -11,8 +11,8 @@ class ViewProblemController extends Controller
     {
         $problem = DB::table('problems')
             ->select('*')
-            ->join('issuestatus', 'problems.id', '=', 'issuestatus.issueid')
-            ->join("type_issues", "type_issues.id", "=", "problems.issueid")
+            ->join('IssueStatus', 'problems.id', '=', 'IssueStatus.issueid')
+            ->join("Type_issues", "Type_issues.id", "=", "problems.issueid")
             ->join("photos", 'problems.id', '=', 'photos.issueid')
             ->join('users', "users.id", "=", "problems.userid")
             ->where('problems.id', '=', $id)->limit(2)->get();
