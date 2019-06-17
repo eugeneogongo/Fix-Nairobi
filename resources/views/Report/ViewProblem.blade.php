@@ -49,7 +49,7 @@
 
             </div>
             <div class="form-label-group">
-                <label><strong>Details: </strong>{{$problem[0]->moredetails}}</label>
+                <label><strong>Summary of the Problem: </strong>{{$problem[0]->moredetails}}</label>
             </div>
             <div class="form-label-group">
                 <label><strong>LandMark: </strong>{{$problem[0]->landmark}}</label>
