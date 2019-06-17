@@ -19,6 +19,7 @@ Route::get('/reportproblem', 'ReportController@Show')->name('reportproblem');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', 'HomeController@showAbout')->name('about');
 Route::post('/reportproblem', 'ReportController@reportIssue')->name('reportproblem');
 Route::get('/admin', 'AdminController@admin')->middleware('admin')->name('admin');
 Route::get('/admin/newIssue','IssueController@show')->middleware('admin')->name('newissue');
