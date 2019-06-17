@@ -61,12 +61,16 @@
             <p>Photos
             <p/>
             <div class="myflex">
+                @isset($problem[0]->path)
                 <div class="child">
                     <img src="{{asset('images/')}}/{{$problem[0]->path}}" id="img1" class="card-img-top bg"/>
                 </div>
+                @endisset
+                @isset($problem[1]->path)
                 <div class="child">
                     <img src="{{asset('images/')}}/{{$problem[1]->path}}" id="img2" class="card-img-top bg"/>
                 </div>
+                @endisset
             </div>
             <div class="card-img-bottom">
                 reported by <strong> {{$problem[0]->name}} </strong>at
