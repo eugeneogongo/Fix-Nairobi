@@ -15,4 +15,8 @@ class HomeController extends Controller
         return view('index')->withTitle("FixNairobi");
     }
 
+    public function showAbout(){
+        return view('pages.about')->withTitle('About - Fix Nairobi');
+    }
+
 }
