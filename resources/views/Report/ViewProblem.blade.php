@@ -45,7 +45,7 @@
                 <label><strong>IssuesStatus: </strong>{{$problem[0]->status}}</label>
             </div>
             <hr>
-            <p>Photos</p>
+            <p>Photos </p>
             <div class="myflex">
                 @isset($problem[0]->path)
                 <div class="child">
