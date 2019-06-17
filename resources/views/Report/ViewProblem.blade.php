@@ -44,41 +44,35 @@
     <div class="myrow">
         <div class="column-sm card">
 
-            <div class="card-body">
-                <div class="form-label-group">
-                    <label><b>Title: </b>{{$problem[0]->Title}}</label>
-
-                </div>
-                <div class="form-label-group">
-                    <label><strong>Details: </strong>{{$problem[0]->moredetails}}</label>
-                </div>
-                <div class="form-label-group">
-                    <label><strong>LandMark: </strong>{{$problem[0]->landmark}}</label>
-                </div>
-                <div class="form-label-group">
-                    <label><strong>IssuesStatus: </strong>{{$problem[0]->status}}</label>
-                </div>
-                <hr>
-                <p>Photos
-                <p/>
-                <div class="myflex">
-                    <div class="child">
-                        <img src="{{asset('images/')}}/{{$problem[0]->path}}" id="img1" class="card-img-top bg"/>
-                    </div>
-                    <div class="child">
-                        <img src="{{asset('images/')}}/{{$problem[1]->path}}" id="img2" class="card-img-top bg"/>
-                    </div>
-                </div>
-                <div class="card-img-bottom">
-                    reported by <strong> {{$problem[0]->name}} </strong>at <small> {{$problem[0]->created_at}}</small>
-                </div>
-                @if(auth()->user()->isAdmin)
-                    <form>
-
-                    </form>
-                    @endif
+            <div class="form-label-group">
+                <label><b>Title: </b>{{$problem[0]->Title}}</label>
 
             </div>
+            <div class="form-label-group">
+                <label><strong>Details: </strong>{{$problem[0]->moredetails}}</label>
+            </div>
+            <div class="form-label-group">
+                <label><strong>LandMark: </strong>{{$problem[0]->landmark}}</label>
+            </div>
+            <div class="form-label-group">
+                <label><strong>IssuesStatus: </strong>{{$problem[0]->status}}</label>
+            </div>
+            <hr>
+            <p>Photos
+            <p/>
+            <div class="myflex">
+                <div class="child">
+                    <img src="{{asset('images/')}}/{{$problem[0]->path}}" id="img1" class="card-img-top bg"/>
+                </div>
+                <div class="child">
+                    <img src="{{asset('images/')}}/{{$problem[1]->path}}" id="img2" class="card-img-top bg"/>
+                </div>
+            </div>
+            <div class="card-img-bottom">
+                reported by <strong> {{$problem[0]->name}} </strong>at
+                <small> {{$problem[0]->created_at}}</small>
+            </div>
+
         </div>
         <div id="map" class="column-lg card"></div>
     </div>
