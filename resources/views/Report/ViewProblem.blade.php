@@ -21,27 +21,14 @@
             width: 100px;
         }
 
-        .hide {
-            visibility: hidden;
-        }
-
-        .visible {
-            visibility: visible;
-        }
-
         .bg {
             background: grey;
-        }
-
-        .pushup {
-            margin-top: -10px;
-            position: relative;
         }
 
     </style>
 @endsection
 @section('content')
-    <div class="myrow">
+    <div class="myrow mb-5">
         <div class="column-sm card">
 
             <div class="form-label-group">
@@ -58,8 +45,7 @@
                 <label><strong>IssuesStatus: </strong>{{$problem[0]->status}}</label>
             </div>
             <hr>
-            <p>Photos
-            <p/>
+            <p>Photos</p>
             <div class="myflex">
                 @isset($problem[0]->path)
                 <div class="child">
@@ -72,11 +58,10 @@
                 </div>
                 @endisset
             </div>
-            <div class="card-img-bottom">
+            <div class="card-footer">
                 reported by <strong> {{$problem[0]->name}} </strong>at
                 <small> {{$problem[0]->created_at}}</small>
             </div>
-
         </div>
         <div id="map" class="column-lg card"></div>
     </div>
@@ -89,54 +74,12 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script rel="script">
-        $(document).ready(function () {
-            $('#newissue').submit(function (e) {
-                e.preventDefault();
-                var formdata = new FormData(this);
-                if (document.getElementById('location').value == "") {
-                    swal("Pick Location", "Pick a location on the map", "error");
-                    document.getElementById('map').scrollIntoView();
-                    return;
-                }
-                var form = $(this);
-                var url = form.attr('action');
-
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    data: formdata, // serializes the form's elements.
-                    success: function (data) {
-                        console.log(data.status);
-                        if (data.status == 'success') {
-                            swal("Good job!", "Your problem was submitted", "success");
-                            document.getElementById("newissue").reset();
-                        } else {
-                            swal("Error", "There was a problem submiting your problem", "error");
-                        }
-
-                    },
-                    error: function (data) {
-                        console.log("error");
-                        console.log(data);
-                    }
-
-                });
-
-
-            });
-        });
-    </script>
     <script>
-        var marker;
-        var images = [];
-        var initilized = false;
+        let marker;
+        let initilized = false;
 
         function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
+            let map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 16,
                 center: {lat: -1.28333, lng: 36.8219}
             });
@@ -154,8 +97,7 @@
                 loca = loca.replace('(', "");
                 loca = loca.replace(')', "");
                 var coord = loca.split(',');
-                console.log(loca);
-                //pan to locatio
+                //pan to location
                 map.panTo(new google.maps.LatLng(coord[0], coord[1]));
                 //set to marker
                 var marker = new google.maps.Marker({
@@ -163,22 +105,6 @@
                     map: map
                 });
             });
-        }
-
-        function setImage(input, where) {
-            var url = input.value;
-            var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
-            if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $(where).attr('src', e.target.result);
-                };
-
-                reader.readAsDataURL(input.files[0]);
-            } else {
-                $(where).attr('src', '/assets/no_preview.png');
-            }
         }
     </script>
     <script async defer

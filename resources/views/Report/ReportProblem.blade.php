@@ -36,7 +36,7 @@
     </style>
 @endsection
 @section('content')
-    <div class="myrow">
+    <div class="myrow mb-4">
         <div class="column-sm card">
             <div class="card-body">
                 <h3>Report your Problem</h3>
