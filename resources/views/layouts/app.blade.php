@@ -44,13 +44,17 @@
                     <ul class="navbar-nav ml-auto">
                         @if (!Auth::guest())
                         @if(auth()->user()->isAdmin == 1)
-                            <li class="nav-item">
-                                <a class="btn btn-primary" href="{{route('admin')}}">Dashboard</a>
+                                <li class="nav-item" style="margin-right: 20px;">
+                                    <a class="nav-link btn btn-primary" href="{{route('admin')}}">Dashboard</a>
                             </li>
                         @endif
                         @endif
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link btn btn-outline-success"
+                               href="{{ route('reportproblem') }}">{{ __('Post a Problem') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('about')}}">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Services</a>
@@ -111,6 +115,10 @@
                                     </li>
                                 @endif
                             @endif
+                            <li class="nav-item">
+                                <a class="nav-link btn btn-sm btn-outline-success"
+                                   href="{{ route('register') }}">{{ __('Post a Problem') }}</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">About</a>
                             </li>
