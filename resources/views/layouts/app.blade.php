@@ -51,7 +51,7 @@
                         @endif
                         <li class="nav-item">
                             <a class="nav-link btn btn-outline-success"
-                               href="{{ route('reportproblem') }}">{{ __('Post a Problem') }}</a>
+                               href="{{ route('reportproblem') }}">{{ __('Report a problem') }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('about')}}">About</a>
