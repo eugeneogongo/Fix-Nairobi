@@ -4,8 +4,8 @@ cache:
   directories:
     - $HOME/.cache/pip
     - $HOME/.composer/cache/files
-addons:
-  mariadb: '10.1'
+services:
+  - mysql
 
 php:
   - 7.2
