@@ -59,7 +59,7 @@
                         <input type="text" class="form-control" name="desc" required placeholder="Problem Title"/>
                     </div>
                     <p>Photos
-                    <p/>
+                    </p>>
                     <div class="myflex" style="overflow: auto;">
                         <div class="child">
                             <input type="file" id="image1" name="image1" style="display: none;" accept="image/*"

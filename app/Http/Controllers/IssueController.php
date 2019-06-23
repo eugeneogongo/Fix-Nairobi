@@ -14,10 +14,10 @@ class IssueController extends Controller
         $this->middleware('auth');
     }
 
-    protected function  show(){
+    public function  show(){
        return view('admin.newissue');
     }
-    protected function createIssue(Request $request){
+    public function createIssue(Request $request){
         try {
             $issue = new TypeIssues();
             $issue->desc = $request->get('desc');
