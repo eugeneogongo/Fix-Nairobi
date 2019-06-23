@@ -1,3 +1,4 @@
+https://travis-ci.org/eugeneogongo/Fix-Nairobi.svg?branch=master
 # Fix Nairobi
 This Project helps people from Nairobi City to report there issues to Nairobi County who then forward issues to relevant authorities
 
