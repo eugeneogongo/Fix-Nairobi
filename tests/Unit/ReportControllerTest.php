@@ -3,7 +3,9 @@
 namespace FixNairobi\Http\Controllers;
 
 
-class ReportControllerTest extends \PHPUnit_Framework_TestCase
+use Tests\TestCase;
+
+class ReportControllerTest extends TestCase
 {
 
     public function testSaveImage()

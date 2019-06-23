@@ -3,7 +3,9 @@
 namespace FixNairobi\Http\Controllers;
 
 
-class ViewProblemControllerTest extends \PHPUnit_Framework_TestCase
+use Tests\TestCase;
+
+class ViewProblemControllerTest extends TestCase
 {
 
     public function testViewIssue()
