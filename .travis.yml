@@ -4,6 +4,8 @@ cache:
   directories:
     - $HOME/.cache/pip
     - $HOME/.composer/cache/files
+addons:
+  mariadb: '10.1'
 
 php:
   - 7.2
@@ -26,6 +28,7 @@ before_install:
   - composer require "illuminate/support:${ILLUMINATE_VERSION}" --no-update --prefer-dist
   - composer require "orchestra/testbench:${ILLUMINATE_VERSION/5\./3\.}" --no-update --prefer-dist
   - composer require "phpunit/phpunit:${PHPUNIT_VERSION}" --no-update --prefer-dist
+  - mysql -e 'create database fix;'
 
 
 install: travis_retry composer install --no-interaction --prefer-dist
