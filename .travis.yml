@@ -34,8 +34,9 @@ before_install:
 install: travis_retry composer install --no-interaction --prefer-dist
 
 before_script:
-  - phpenv config-add ~/xdebug.ini
   - cp .env.travis .env
+  - php artisan migrate
+  - phpenv config-add ~/xdebug.ini
 
 
 script:
