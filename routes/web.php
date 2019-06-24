@@ -26,3 +26,5 @@ Route::get('/admin/newIssue','IssueController@show')->middleware('admin')->name(
 Route::post('/admin/createIssue','IssueController@createIssue')->middleware('admin')->name('createissue');
 Route::get('/viewissue/{id}', "ViewProblemController@ViewIssue");
 Route::get('/sample','SampleCOntroller@show');
+Route::get('/broadcast', "BroadCastController@show")->middleware('admin')->name('broadcast');
+Route::post('/broadcast', "BroadCastController@send")->middleware('admin')->name('broadcast');
