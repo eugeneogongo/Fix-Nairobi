@@ -20,6 +20,8 @@ class Admin
         try{
             if (auth()->user()->isAdmin == 1) {
                 return $next($request);
+            }else{
+                abort(404);
             }
         }catch (Exception $ex){
             abort(404);

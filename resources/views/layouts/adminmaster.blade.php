@@ -60,7 +60,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="{{route('admin')}}">
+            <a class="nav-link" href="{{route('broadcast')}}">
                 <i class="fas fa-fw fa-mail-bulk"></i>
                 <span>Send Campaign Message</span></a>
         </li>
