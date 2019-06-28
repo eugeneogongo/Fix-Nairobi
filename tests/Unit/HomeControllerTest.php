@@ -12,9 +12,9 @@ class HomeControllerTest extends TestCase
 
     public  function  testuser_auth(){
         $user = factory(User::class)->create();
-        Auth::login($user);
-        $response = $this->get('/reportproblem');
-        $response->assertSee($user->name);
+        $this->actingAs($user);
+        $response = $this->get('/login');
+        $response->assertLocation('/home');
     }
     public function testIndex()
     {

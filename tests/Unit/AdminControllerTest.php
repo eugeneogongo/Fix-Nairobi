@@ -18,7 +18,7 @@ public  function test_admin_not_redirected(){
         'isAdmin'=>'1'
     ]);
     $response = $this->be($user)->withMiddleware(Admin::class)->get('/admin');
-    $response->assertLocation('/admin');
+    $response->assertStatus(200);
 }
     /**
      * redirects to login page

@@ -7,7 +7,7 @@ use Tests\TestCase;
 
 class ReportControllerTest extends TestCase
 {
-
+/*
     public function testSaveImage()
     {
 
@@ -16,10 +16,11 @@ class ReportControllerTest extends TestCase
     public function testShow()
     {
 
+
     }
 
     public function testReportIssue()
     {
 
-    }
+    }*/
 }

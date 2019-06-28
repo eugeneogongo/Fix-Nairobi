@@ -8,7 +8,7 @@ use Tests\TestCase;
 class ViewProblemControllerTest extends TestCase
 {
 
-    public function testViewIssue()
+   /* public function testViewIssue()
     {
 
     }
@@ -16,5 +16,5 @@ class ViewProblemControllerTest extends TestCase
     public function testIssueFixed()
     {
 
-    }
+    }*/
 }
