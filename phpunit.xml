@@ -19,7 +19,12 @@
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./app</directory>
+          <directory suffix=".php">./app</directory>
+        </whitelist>
+    </filter>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">app/</directory>
         </whitelist>
     </filter>
     <php>
@@ -29,6 +34,5 @@
         <server name="MAIL_DRIVER" value="array"/>
         <server name="QUEUE_CONNECTION" value="sync"/>
         <server name="SESSION_DRIVER" value="array"/>
-        <server name="APP_KEY" value="base64:RLm+ppeEG3CMf+cZ0Kkk9h1bVRL0MzD83g3XXODN+cs="/>
     </php>
 </phpunit>
