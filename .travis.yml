@@ -42,7 +42,6 @@ before_script:
 script:
   - php artisan key:generate
   - vendor/bin/phpunit
-  - composer run vendor/bin/phpunit -- --coverage-clover ./tests/logs/clover.xml
 
 after_success:
   - sh -c "if [ ! -z ${COVERAGE+x} ]; then php vendor/bin/php-coveralls; fi"
