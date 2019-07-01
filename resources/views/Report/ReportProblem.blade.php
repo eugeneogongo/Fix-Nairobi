@@ -184,6 +184,10 @@
 
 
             });
+            google.maps.event.addListenerOnce(map, 'idle', function () {
+                getLocation(map);
+
+            });
         }
 
         function placeMarkerAndPanTo(latLng, map) {
@@ -214,7 +218,25 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWIHgQV9GMX2yUDSMkjkdFlRGeXY_tFNo&callback=initMap">
     </script>
+    <script>
+        function getLocation(map) {
+            if (navigator.geolocation) {
+                //pan to location
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    //pan to location
+                    map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+                    //set to marker
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+                        map: map
+                    });
+                });
+            } else {
+                console.log("Geolocation is not supported by this browser.");
+            }
+        }
 
+    </script>
 
 
 @endsection
