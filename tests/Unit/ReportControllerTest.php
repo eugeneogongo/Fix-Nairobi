@@ -12,7 +12,7 @@ use Tests\TestCase;
 class ReportControllerTest extends TestCase
 {
 
-   // use RefreshDatabase;
+    use RefreshDatabase;
 
     public function testUser_notauthenticated()
     {
