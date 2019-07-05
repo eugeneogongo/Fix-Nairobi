@@ -71,4 +71,23 @@ class ReportControllerTest extends TestCase
         $content = json_decode($response->getContent());
         $this->assertObjectHasAttribute('status', $content);
     }
+
+    public function testreportfeed()
+    {
+        $this->withoutMiddleware();
+        $response = $this->get('file-a-complain');
+        $response->assertStatus(200);
+        $response->assertSee("Report a Complainant or Leave a Feedback");
+
+        $response = $this->post('file-a-complain', [
+            'email' => 'me@sample.com',
+            'message' => 'hello'
+        ]);
+        $response->assertStatus(200);
+        $this->assertDatabaseHas('feedback', [
+            'email' => 'me@sample.com',
+            'message' => 'hello'
+        ]);
+        $response->assertSee('Message Received!');
+    }
 }
