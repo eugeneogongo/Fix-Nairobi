@@ -3,9 +3,11 @@
 namespace FixNairobi\Http\Controllers;
 
 
+use FixNairobi\Mail\ProblemReported;
 use FixNairobi\TypeIssues;
 use FixNairobi\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Mail;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Tests\TestCase;
 
@@ -33,6 +35,8 @@ class ReportControllerTest extends TestCase
     public function testReportIssue()
     {
         $this->withoutMiddleware();
+        Mail::fake();
+        Mail::assertNothingQueued();
         $user = factory(User::class)->create([
             'isAdmin' => '1'
         ]);
@@ -61,7 +65,8 @@ class ReportControllerTest extends TestCase
         ]);
 
         $response->assertStatus(200);
-       /* $this->assertDatabaseHas('problems', [
+        Mail::assertSent(ProblemReported::class,1);
+       /*$this->assertDatabaseHas('problems', [
              'desc' => 'Hello world',
          ]);
         $this->assertDatabaseHas('IssueStatus', [
