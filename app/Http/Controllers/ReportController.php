@@ -2,13 +2,12 @@
 
 namespace FixNairobi\Http\Controllers;
 
-use FixNairobi\IssueStatus;
+use Exception;
+use FixNairobi\Feedback;
 use FixNairobi\Jobs\SendAckEmail;
-use FixNairobi\Mail\ProblemReported;
 use FixNairobi\Photo;
 use FixNairobi\Problem;
 use FixNairobi\TypeIssues;
-use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,7 +17,7 @@ class ReportController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => 'reportfeed']);
     }
 
     //
@@ -77,5 +76,17 @@ class ReportController extends Controller
             ]);
         }
 
+    }
+
+    public function reportfeed(Request $request)
+    {
+        $feedback = new Feedback();
+        $feedback->email = $request->email;
+        $feedback->message = $request->message;
+
+        if ($feedback->save()) {
+            return view('pages.complainform')->withMessage('success');
+        }
+        return redirect(route('complain'));
     }
 }
