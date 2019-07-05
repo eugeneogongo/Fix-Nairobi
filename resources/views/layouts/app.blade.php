@@ -57,7 +57,7 @@
                             <a class="nav-link" href="{{route('about')}}">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Services</a>
+                            <a class="nav-link" href="{{route('complain')}}">Fill a Complain</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
