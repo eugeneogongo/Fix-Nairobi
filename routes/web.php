@@ -28,3 +28,8 @@ Route::get('/viewissue/{id}', "ViewProblemController@ViewIssue");
 Route::get('/sample','SampleCOntroller@show');
 Route::get('/broadcast', "BroadCastController@show")->middleware('admin')->name('broadcast');
 Route::post('/broadcast', "BroadCastController@send")->middleware('admin')->name('broadcast');
+
+Route::get('/file-a-complain', function () {
+    return view('pages.complainform')->withTitle('File Complain');
+})->name('complain');
+Route::post('/file-a-complain', 'ReportController@reportfeed')->name('complain');
