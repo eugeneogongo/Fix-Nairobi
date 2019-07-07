@@ -4,6 +4,7 @@ namespace FixNairobi\Http\Controllers;
 
 
 use FixNairobi\Mail\ProblemReported;
+use FixNairobi\Photo;
 use FixNairobi\TypeIssues;
 use FixNairobi\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -41,7 +42,7 @@ class ReportControllerTest extends TestCase
         $user = factory(User::class)->create([
             'isAdmin' => '1'
         ]);
-        Storage::fake('avatars');
+        Storage::fake('local');
 
         $issue = new TypeIssues();
         $issue->desc = "test";
@@ -50,7 +51,7 @@ class ReportControllerTest extends TestCase
         $this->assertDatabaseHas('Type_issues', [
             'desc' => 'test'
         ]);
-        $file = UploadedFile::fake()->image('avatar.jpg');
+        $file = UploadedFile::fake()->image('test.jpg');
         $response = $this->actingAs($user)->post('/reportproblem', [
             'location' => '(123,124)',
             'issueid' => $id,
@@ -59,11 +60,12 @@ class ReportControllerTest extends TestCase
             'desc' => 'Hello world',
             'image1' => $file
         ]);
+        $photo = Photo::all();
 
         $response->assertStatus(200);
 
         // Assert the file was stored...
-        Storage::disk('public')->assertExists($file->hashName());
+        Storage::disk('local')->assertExists('public', $file->hashName());
 
         $this->assertDatabaseHas('problems', [
             'Title' => 'Hello world',
