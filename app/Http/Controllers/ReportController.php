@@ -65,13 +65,9 @@ class ReportController extends Controller
     function saveImage($id, $request, $imagename)
     {
         if ($request->hasFile($imagename)) {
-            $pic = new Photo();
-            $image = $request->file($imagename);
-            $name = time() . ' ' . $image->getClientOriginalName();
-            $destinationPath = public_path('/images');
-            $image->move($destinationPath, $name);
+          $path =  $request->file($imagename)->store('public');
             DB::table('photos')->insert([
-                "path"=>$name,
+                "path"=>$path,
                "issueid"=>$id
             ]);
         }

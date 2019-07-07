@@ -31,7 +31,7 @@ class BulkMail extends Mailable
      */
     public function build()
     {
-        return $this->subject($this->subject)->from("odera.eugene@students.jkuat.ac.ke", "Emergency Group - Fix Nairobi")->view('Mailing.BulkEmail')->with(['content' => $this->template]);
+        return $this->subject($this->subject)->from("odera.eugene@students.jkuat.ac.ke", "Fix Nairobi")->view('Mailing.BulkEmail')->with(['content' => $this->template]);
     }
 
 }

@@ -24,9 +24,8 @@ class Admin
                 abort(404);
             }
         }catch (Exception $ex){
-            abort(404);
+          abort(404);
         }
-
 
     }
 }

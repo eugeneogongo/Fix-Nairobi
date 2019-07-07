@@ -20,5 +20,9 @@ class UserTableSeeder extends Seeder
            'password'=>Hash::make ("12345678"),
            'isAdmin'=>1
        ]);
+
+       $type = new \FixNairobi\TypeIssues();
+       $type->desc = 'Stalled vehicle';
+       $type->save();
     }
 }

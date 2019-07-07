@@ -16,6 +16,9 @@ class ViewProblemController extends Controller
             ->join("photos", 'problems.id', '=', 'photos.issueid')
             ->join('users', "users.id", "=", "problems.userid")
             ->where('problems.id', '=', $id)->limit(2)->get();
+        if($problem->isEmpty()){
+            abort(404,"The Problem was either deleted or not found");
+        }
         return view('Report.ViewProblem')->with("problem", $problem);
     }
     public function  issueFixed($id){

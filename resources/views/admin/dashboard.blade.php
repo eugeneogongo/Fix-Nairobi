@@ -110,7 +110,7 @@
                                     foreach ($problems as $prob){
                                     echo('<div class="card issuecard">');
                                     echo('
-                                    <img class="card-img-top" src='.asset('images/'.$prob->path).' />
+                                    <img class="card-img-top" src='.Storage::url($prob->path).' />
                                    <div class="card-body">
                                     <h5 class="card-title">'.$prob->Title.'</h5> Was Reported at '.$prob->detail.'<br>
                                     <a href=viewissue/'.$prob->id.' class="btn btn-primary">View Issue</a>

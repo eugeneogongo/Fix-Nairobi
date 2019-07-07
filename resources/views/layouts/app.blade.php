@@ -49,26 +49,23 @@
                             </li>
                         @endif
                         @endif
-                        <li class="nav-item">
+                        <li class="nav-item  mr-3">
                             <a class="nav-link btn btn-outline-success"
                                href="{{ route('reportproblem') }}">{{ __('Report a problem') }}</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mr-3">
                             <a class="nav-link" href="{{route('about')}}">About</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('complain')}}">Fill a Complain</a>
-                        </li>
-                        <li class="nav-item">
+                        <li class="nav-item mr-3">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
+                            <li class="nav-item  mr-3">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li class="nav-item  mr-3">
                                     <a class="nav-link btnRegister"
                                        href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
