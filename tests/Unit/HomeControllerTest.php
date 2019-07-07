@@ -4,12 +4,12 @@ namespace FixNairobi\Http\Controllers;
 
 
 use FixNairobi\User;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class HomeControllerTest extends TestCase
 {
-
+    use RefreshDatabase;
     public  function  testuser_auth(){
         $user = factory(User::class)->create();
         $this->actingAs($user);
