@@ -7,8 +7,9 @@ use FixNairobi\Mail\ProblemReported;
 use FixNairobi\TypeIssues;
 use FixNairobi\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Mail;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
 class ReportControllerTest extends TestCase
@@ -40,13 +41,7 @@ class ReportControllerTest extends TestCase
         $user = factory(User::class)->create([
             'isAdmin' => '1'
         ]);
-        $stub = __DIR__ . '/test.jpg';
-        $name = str_random(8) . '.jpg';
-        $path = sys_get_temp_dir() . '/' . $name;
-
-        copy($stub, $path);
-
-        $file = new UploadedFile($path, $name, filesize($path), null, true);
+        Storage::fake('avatars');
 
         $issue = new TypeIssues();
         $issue->desc = "test";
@@ -55,27 +50,32 @@ class ReportControllerTest extends TestCase
         $this->assertDatabaseHas('Type_issues', [
             'desc' => 'test'
         ]);
-
+        $file = UploadedFile::fake()->image('avatar.jpg');
         $response = $this->actingAs($user)->post('/reportproblem', [
             'location' => '(123,124)',
             'issueid' => $id,
             'landmark' => 'gachoro',
             'moredetails' => 'moredetails',
-            'desc' => 'Hello world'
+            'desc' => 'Hello world',
+            'image1' => $file
         ]);
 
         $response->assertStatus(200);
-        Mail::assertSent(ProblemReported::class,1);
-       /*$this->assertDatabaseHas('problems', [
-             'desc' => 'Hello world',
-         ]);
+
+        // Assert the file was stored...
+        Storage::disk('public')->assertExists($file->hashName());
+
+        $this->assertDatabaseHas('problems', [
+            'Title' => 'Hello world',
+        ]);
         $this->assertDatabaseHas('IssueStatus', [
-            'status' => 'Not Fixed',
-            'issueid' => '1'
-        ]);*/
+            'status' => 'Not Fixed'
+        ]);
+        Mail::assertSent(ProblemReported::class,1);
         $content = json_decode($response->getContent());
         $this->assertObjectHasAttribute('status', $content);
     }
+
 
     public function testreportfeed()
     {
