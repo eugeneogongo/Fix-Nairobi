@@ -1,5 +1,6 @@
 <?php
 
+use FixNairobi\Http\Middleware\VerifyCsrfToken;
 use FixNairobi\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
@@ -86,8 +87,10 @@ class LoginTest extends TestCase
 
     public function testUserCanLogout()
     {
-        $this->withoutMiddleware();
+        $this->withoutMiddleware(VerifyCsrfToken::class);
         $this->be(factory(User::class)->create());
+        $response = $this->post($this->logoutRoute());
+        $response->assertRedirect($this->successfulLogoutRoute());
         $this->assertGuest();
     }
 
