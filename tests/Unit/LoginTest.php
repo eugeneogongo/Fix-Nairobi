@@ -40,11 +40,11 @@ class LoginTest extends TestCase
         $user = factory(User::class)->create([
             'password' => Hash::make($password = 'i-love-laravel'),
         ]);
-        $response = $this->post($this->loginPostRoute(), [
+        $this->post($this->loginPostRoute(), [
             'email' => $user->email,
             'password' => $password,
         ]);
-//        $response->assertRedirect($this->successfulLoginRoute());
+
         $this->assertAuthenticatedAs($user);
     }
 
@@ -88,7 +88,6 @@ class LoginTest extends TestCase
     {
         $this->withoutMiddleware();
         $this->be(factory(User::class)->create());
-        $response = $this->post($this->logoutRoute());
         $this->assertGuest();
     }
 
@@ -100,7 +99,7 @@ class LoginTest extends TestCase
     public function testUserCannotLogoutWhenNotAuthenticated()
     {
         $this->withoutMiddleware();
-        $response = $this->post($this->logoutRoute());
+        $this->post($this->logoutRoute());
 
         $this->assertGuest();
     }
