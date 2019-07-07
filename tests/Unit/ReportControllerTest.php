@@ -46,7 +46,8 @@ class ReportControllerTest extends TestCase
 
         $issue = new TypeIssues();
         $issue->desc = "test";
-        $id = $issue->save();
+        $issue->save();
+        $id = $issue->id;
 
         $this->assertDatabaseHas('Type_issues', [
             'desc' => 'test'
@@ -60,7 +61,6 @@ class ReportControllerTest extends TestCase
             'desc' => 'Hello world',
             'image1' => $file
         ]);
-        $photo = Photo::all();
 
         $response->assertStatus(200);
 

@@ -5,11 +5,13 @@ namespace FixNairobi\Http\Controllers;
 
 use FixNairobi\Http\Middleware\Admin;
 use FixNairobi\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
 use Tests\TestCase;
 
 class AdminControllerTest extends TestCase
 {
+    Use RefreshDatabase;
     /**
      * Checks if an admin can access this page
      */
