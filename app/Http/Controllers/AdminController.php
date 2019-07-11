@@ -2,6 +2,8 @@
 
 namespace FixNairobi\Http\Controllers;
 
+use FixNairobi\Feedback;
+
 class AdminController extends Controller
 {
     /**
@@ -20,5 +22,11 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
+    public  function  feedbacks(){
+        $feedbacks = Feedback::all();
+
+        return view('admin.allfeedbacks')->with([
+            'feedbacks'=>$feedbacks]);
+    }
 
 }

@@ -1,6 +1,8 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
+
+use FixNairobi\Photo;
 use FixNairobi\User;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
@@ -25,3 +27,36 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
     ];
 });
+$factory->define(\FixNairobi\Feedback::class,function (Faker $faker){
+
+    return[
+        'email'=>$faker->unique()->safeEmail,
+        'message'=>$faker->text
+    ];
+});
+$factory->define(\FixNairobi\Problem::class,function (Faker $faker){
+   return[
+       'location' => '('.$faker->latitude($min = 	-1.28333,$max = 	-2.28333).','.$faker->longitude($min = -180, $max = 180).')',
+       'landmark' => $faker->city,
+       'moredetails' => $faker->paragraph,
+       'Title' => $faker->word,
+       'issueid'=>4
+   ] ;
+});
+$factory->define(\FixNairobi\TypeIssues::class,function(Faker $faker){
+    return[
+      'desc'=>$faker->word
+    ];
+});
+
+$factory->define(Photo::class,function (Faker $faker){
+   return[
+       'path'=>$faker->imageUrl($width = 640, $height = 480)
+   ];
+});
+$factory->define(\FixNairobi\IssueStatus::class,function(Faker $faker){
+   return[
+      'status'=>'Not Fixed',
+   ] ;
+});
+
