@@ -33,3 +33,5 @@ Route::get('/file-a-complain', function () {
     return view('pages.complainform')->withTitle('File Complain');
 })->name('complain');
 Route::post('/file-a-complain', 'ReportController@reportfeed')->name('complain');
+
+Route::get('/feedbacks', 'AdminController@feedbacks')->middleware('admin')->name('feedbacks');
