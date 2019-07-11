@@ -125,7 +125,8 @@
                                 ->join('IssueStatus','problems.id','=','IssueStatus.issueid')
                                 ->join("Type_issues","Type_issues.id","=","problems.issueid")
                                 ->join("photos",'problems.id','=','photos.issueid')
-                                ->where('status','=','Not Fixed')->limit(4)-> get();
+                                ->where('status','=','Not Fixed')->orderBy('problems.created_at', 'desc')
+                                ->limit(4)-> get();
 
                                 foreach ($problems as $prob){
                                 echo('<a href=/viewissue/'.$prob->id.'>');
@@ -134,9 +135,6 @@
                                  <img class="rounded" style="float:right;width:90px;height:60px;margin-left: 1em;" src="'.Storage::url($prob->path).'" alt='.$prob->Title.' Image'.' />
                                  '.$prob->Title.' Was Reported at '.$prob->detail.'</br>
                                  <small>'.$prob->publisheddat.'</small>
-                                 <form>
-
-                                 </form>
                                  </div>
                              </a>
                              <hr>');
