@@ -10,4 +10,9 @@ class TypeIssues extends Model
     protected $table = "Type_issues";
     protected $fillable=["desc"];
 
+    public function problem()
+    {
+        return $this->hasMany(Problem::class, 'issueid', 'id');
+    }
+
 }
