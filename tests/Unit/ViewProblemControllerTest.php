@@ -53,6 +53,14 @@ class ViewProblemControllerTest extends TestCase
         $response->assertSee('gachoro');
     }
 
+    public function testthrows404()
+    {
+        $response = $this->get('/viewissues/100000');
+
+        $response->assertStatus(404);
+
+    }
+
     public function testIssueFixed()
     {
         $this->assertTrue(true);
