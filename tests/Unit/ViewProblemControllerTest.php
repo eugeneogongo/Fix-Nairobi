@@ -17,7 +17,7 @@ class ViewProblemControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testViewIssue()
+   /* public function testViewIssue()
     {
 
         $this->withoutMiddleware();
@@ -53,7 +53,7 @@ class ViewProblemControllerTest extends TestCase
         $response = $this->get('/viewissue/'.$problem[0]->id);
         $response->assertStatus(200);
         $response->assertSee('gachoro');
-    }
+    }*/
 
     public function testIssueFixed()
     {
