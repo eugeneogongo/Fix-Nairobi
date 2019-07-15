@@ -8,7 +8,6 @@ use FixNairobi\TypeIssues;
 use FixNairobi\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
@@ -17,7 +16,7 @@ class ViewProblemControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-   /* public function testViewIssue()
+    public function testViewIssue()
     {
 
         $this->withoutMiddleware();
@@ -47,13 +46,12 @@ class ViewProblemControllerTest extends TestCase
         ]);
 
         $response->assertStatus(200);
-        $problem =Problem::wherehas([
-            'landmark'=>'gachoro'
-        ])->get()->first();
+        $problem = Problem::all()->where('landmark', '=', 'gachoro');
+        $this->assertNotNull($problem);
         $response = $this->get('/viewissue/'.$problem[0]->id);
         $response->assertStatus(200);
         $response->assertSee('gachoro');
-    }*/
+    }
 
     public function testIssueFixed()
     {
