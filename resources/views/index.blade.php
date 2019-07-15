@@ -126,9 +126,9 @@
                                 ->join("Type_issues","Type_issues.id","=","problems.issueid")
                                 ->join("photos",'problems.id','=','photos.issueid')
                                 ->where('status','=','Not Fixed')->orderBy('problems.created_at', 'desc')
-                                ->limit(4)-> get();
-
+                                ->limit(4)->distinct()-> get();
                                 foreach ($problems as $prob){
+
                                 echo('<a href=/viewissue/'.$prob->id.'>');
                                 echo('
                                 <div>
