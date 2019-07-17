@@ -56,7 +56,6 @@ class ViewProblemControllerTest extends TestCase
     public function testthrows404()
     {
         $response = $this->get('/viewissues/100000');
-
         $response->assertStatus(404);
 
     }
