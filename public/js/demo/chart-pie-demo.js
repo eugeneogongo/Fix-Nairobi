@@ -1,3 +1,10 @@
+/*
+ * Developed by Eugene Ogongo on 7/20/19 10:44 AM
+ * Author Email: eugeneogongo@live.com
+ * Last Modified 7/20/19 10:41 AM
+ * Copyright (c) 2019 . All rights reserved
+ */
+
 // Set new default font family and font color to mimic Bootstrap's default styling
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';

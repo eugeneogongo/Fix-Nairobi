@@ -1,15 +1,8 @@
-/*!
- * jQuery JavaScript Library v3.4.1 -ajax,-ajax/jsonp,-ajax/load,-ajax/parseXML,-ajax/script,-ajax/var/location,-ajax/var/nonce,-ajax/var/rquery,-ajax/xhr,-manipulation/_evalUrl,-event/ajax,-effects,-effects/Tween,-effects/animatedSelector
- * https://jquery.com/
- *
- * Includes Sizzle.js
- * https://sizzlejs.com/
- *
- * Copyright JS Foundation and other contributors
- * Released under the MIT license
- * https://jquery.org/license
- *
- * Date: 2019-05-01T21:04Z
+/*
+ * Developed by Eugene Ogongo on 7/20/19 10:44 AM
+ * Author Email: eugeneogongo@live.com
+ * Last Modified 7/20/19 10:41 AM
+ * Copyright (c) 2019 . All rights reserved
  */
 ( function( global, factory ) {
 

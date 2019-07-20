@@ -1,10 +1,9 @@
 /*
- * jQuery Easing v1.4.1 - http://gsgd.co.uk/sandbox/jquery/easing/
- * Open source under the BSD License.
- * Copyright © 2008 George McGinley Smith
- * All rights reserved.
- * https://raw.github.com/gdsmith/jquery-easing/master/LICENSE
-*/
+ * Developed by Eugene Ogongo on 7/20/19 10:45 AM
+ * Author Email: eugeneogongo@live.com
+ * Last Modified 7/20/19 10:41 AM
+ * Copyright (c) 2019 . All rights reserved
+ */
 
 (function (factory) {
 	if (typeof define === "function" && define.amd) {

@@ -1,11 +1,8 @@
 /*
- * Easing Compatibility v1 - http://gsgd.co.uk/sandbox/jquery/easing
- *
- * Adds compatibility for applications that use the pre 1.2 easing names
- *
- * Copyright (c) 2007 George Smith
- * Licensed under the MIT License:
- *   http://www.opensource.org/licenses/mit-license.php
+ * Developed by Eugene Ogongo on 7/20/19 10:45 AM
+ * Author Email: eugeneogongo@live.com
+ * Last Modified 7/20/19 10:41 AM
+ * Copyright (c) 2019 . All rights reserved
  */
 
 (function($){

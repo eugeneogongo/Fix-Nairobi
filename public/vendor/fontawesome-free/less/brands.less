@@ -1,3 +1,10 @@
+/*
+ * Developed by Eugene Ogongo on 7/20/19 10:45 AM
+ * Author Email: eugeneogongo@live.com
+ * Last Modified 7/20/19 10:41 AM
+ * Copyright (c) 2019 . All rights reserved
+ */
+
 /*!
  * Font Awesome Free 5.8.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)

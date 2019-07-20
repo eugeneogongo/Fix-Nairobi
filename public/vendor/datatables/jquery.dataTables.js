@@ -1,24 +1,12 @@
-/*! DataTables 1.10.19
- * ©2008-2018 SpryMedia Ltd - datatables.net/license
+/*
+ * Developed by Eugene Ogongo on 7/20/19 10:45 AM
+ * Author Email: eugeneogongo@live.com
+ * Last Modified 7/20/19 10:41 AM
+ * Copyright (c) 2019 . All rights reserved
  */
 
-/**
- * @summary     DataTables
- * @description Paginate, search and order HTML tables
- * @version     1.10.19
- * @file        jquery.dataTables.js
- * @author      SpryMedia Ltd
- * @contact     www.datatables.net
- * @copyright   Copyright 2008-2018 SpryMedia Ltd.
- *
- * This source file is free software, available under the following license:
- *   MIT license - http://datatables.net/license
- *
- * This source file is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
- * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
- *
- * For details please refer to: http://www.datatables.net
+/*! DataTables 1.10.19
+ * ©2008-2018 SpryMedia Ltd - datatables.net/license
  */
 
 /*jslint evil: true, undef: true, browser: true */
