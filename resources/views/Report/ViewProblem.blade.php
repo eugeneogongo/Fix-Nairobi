@@ -45,6 +45,7 @@
                 <label><strong>IssuesStatus: </strong>{{$problem[0]->status}}</label>
             </div>
             <hr>
+
             <p>Photos </p>
             <div class="myflex">
                 @isset($problem[0]->path)
@@ -58,6 +59,18 @@
                 </div>
                 @endisset
             </div>
+            @auth()
+                @if(auth()->user()->isAdmin==1)
+                    <div class="text-center mb-2 mb-sm-1">
+                        <form method="post" id="fix" action="{{route('fix')}}">
+                            @csrf
+                            <input type="text" name="id" value="{{$problem[0]->issueid}}" hidden>
+                            <button class="btn btn-outline-primary">Mark Issue as Fixed</button>
+                        </form>
+
+                    </div>
+                @endif
+            @endauth
             <div class="card-footer">
                 reported by <strong> {{$problem[0]->name}} </strong>at
                 <small> {{$problem[0]->created_at}}</small>
@@ -74,6 +87,41 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script rel="script">
+        $(document).ready(function () {
+
+            $('#fix').submit(function (e) {
+                e.preventDefault();
+                let formdata = new FormData(this);
+                let form = $(this);
+                let url = form.attr('action');
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: formdata, // serializes the form's elements.
+                    success: function (data) {
+                        console.log(data.status);
+                        if (data.status === 'success') {
+                            swal("Good job!", "The Issues has been marked as fixed", "success");
+                            window.location = ('/admin')
+                        } else {
+                            swal("Error", "There was a problem", "error");
+                        }
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+
+                });
+
+
+            });
+        });
+    </script>
     <script>
         let marker;
         let initilized = false;
@@ -108,7 +156,7 @@
         }
     </script>
     <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWIHgQV9GMX2yUDSMkjkdFlRGeXY_tFNo&callback=initMap">
+            src="{{env('Map')}}">
     </script>
 
 
