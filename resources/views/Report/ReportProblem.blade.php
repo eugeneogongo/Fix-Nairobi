@@ -155,7 +155,7 @@
 
                     },
                     error: function (data) {
-                        console.log("error");
+
                         console.log(data);
                     }
 
@@ -184,9 +184,12 @@
 
 
             });
-            google.maps.event.addListenerOnce(map, 'idle', function () {
-                getLocation(map);
-
+            google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
+                //this part runs when the mapobject is created and rendered
+                google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
+                    //this part runs when the mapobject shown for the first time
+                    getLocation(map);
+                });
             });
         }
 
@@ -216,7 +219,7 @@
         }
     </script>
     <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWIHgQV9GMX2yUDSMkjkdFlRGeXY_tFNo&callback=initMap">
+            src="{{env('Map')}}">
     </script>
     <script>
         function getLocation(map) {
