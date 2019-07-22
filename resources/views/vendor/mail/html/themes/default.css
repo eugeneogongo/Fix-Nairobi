@@ -16,7 +16,7 @@ body *:not(html):not(style):not(br):not(tr):not(code) {
 
 body {
     background-color: #f8fafc;
-    color: #74787e;
+    color: white;
     height: 100%;
     hyphens: auto;
     line-height: 1.4;
@@ -229,11 +229,11 @@ img {
 
 .button-blue,
 .button-primary {
-    background-color: #3490dc;
-    border-top: 10px solid #3490dc;
-    border-right: 18px solid #3490dc;
-    border-bottom: 10px solid #3490dc;
-    border-left: 18px solid #3490dc;
+    background-color: green;
+    border-top: 10px solid green;
+    border-right: 18px solid green;
+    border-bottom: 10px solid green;
+    border-left: 18px solid green;
 }
 
 .button-green,

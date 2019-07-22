@@ -31,7 +31,6 @@ Route::get('/admin', 'AdminController@admin')->middleware('admin')->name('admin'
 Route::get('/admin/newIssue','IssueController@show')->middleware('admin')->name('newissue');
 Route::post('/admin/createIssue','IssueController@createIssue')->middleware('admin')->name('createissue');
 Route::get('/viewissue/{id}', "ViewProblemController@ViewIssue");
-Route::get('/sample','SampleCOntroller@show');
 Route::get('/broadcast', "BroadCastController@show")->middleware('admin')->name('broadcast');
 Route::post('/broadcast', "BroadCastController@send")->middleware('admin')->name('broadcast');
 
@@ -41,3 +40,5 @@ Route::get('/file-a-complain', function () {
 Route::post('/file-a-complain', 'ReportController@reportfeed')->name('complain');
 
 Route::get('/feedbacks', 'AdminController@feedbacks')->middleware('admin')->name('feedbacks');
+
+Route::post('/fix','ViewProblemController@issueFixed')->middleware('admin')->name('fix');

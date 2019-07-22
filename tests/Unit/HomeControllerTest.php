@@ -26,6 +26,7 @@ class HomeControllerTest extends TestCase
     {
         $response  = $this->get('/');
         $response->assertStatus(200);
+        $response->assertViewHas('problems');
         $response->assertSee('FixNairobi');
     }
 

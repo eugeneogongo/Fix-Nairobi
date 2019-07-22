@@ -8,7 +8,12 @@
 
 namespace FixNairobi\Http\Controllers;
 
+use FixNairobi\Notifications\ReportFixed;
+use FixNairobi\Problem;
+use FixNairobi\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
 
 class ViewProblemController extends Controller
 {
@@ -26,10 +31,26 @@ class ViewProblemController extends Controller
             abort(404,"The Problem was either deleted or not found");
         }
         return view('Report.ViewProblem')->with("problem", $problem);
+
     }
-    public function  issueFixed($id){
-        DB::table('IssueStatus')->where('issueid','=',$id)->update([
-           'status'=>"Fixed"
+    public function  issueFixed(Request $request){
+        $id = $request->id;
+        try{
+            DB::table('IssueStatus')->where('issueid','=',$id)->update([
+                'status'=>"Fixed"
+            ]);
+        }catch(\Exception $ex){
+            return response()->json([
+                'status'=>'failure'
+            ]);
+        }
+        $problem = Problem::where('id',$id)->first();
+        $user  = User::where("id",$problem->userid)->first();
+
+
+        Notification::send($user,new ReportFixed($user,$id));
+        return response()->json([
+            'status'=>'success'
         ]);
     }
 }

@@ -9,11 +9,13 @@
 namespace FixNairobi\Http\Controllers;
 
 
+use FixNairobi\IssueStatus;
 use FixNairobi\Problem;
 use FixNairobi\TypeIssues;
 use FixNairobi\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
@@ -68,6 +70,21 @@ class ViewProblemControllerTest extends TestCase
 
     public function testIssueFixed()
     {
-        $this->assertTrue(true);
+        Artisan::call('db:seed');
+        $user = factory(User::class)->create([
+            'isAdmin'=>'1'
+        ]);
+        $issuestatus = IssueStatus::where('status','Not Fixed')->first();
+        $this->withoutMiddleware();
+
+        $response  = $this->be($user)->post('fix',[
+        'id'=>1
+        ]);
+       $response->assertStatus(200);
+       $this->assertDatabaseHas('issuestatus',[
+           'issueid'=>1,
+           'status'=>'Fixed'
+       ]);
+
 }
 }

@@ -11,11 +11,14 @@ namespace FixNairobi\Http\Controllers;
 use Exception;
 use FixNairobi\Feedback;
 use FixNairobi\Jobs\SendAckEmail;
+use FixNairobi\Notifications\ProblemReceived;
+use FixNairobi\Notifications\RegisterSuccess;
 use FixNairobi\Photo;
 use FixNairobi\Problem;
 use FixNairobi\TypeIssues;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
 
 
 class ReportController extends Controller
@@ -56,8 +59,7 @@ class ReportController extends Controller
                 "issueid"=> $problem->id
             ]);
 
-            //Send Acknowledgement Email SendA(new SendAckEmail());
-            SendAckEmail::dispatchNow(new SendAckEmail());
+            Notification::send(auth()->user(), new ProblemReceived());
 
             return response()->json(["status" => "success"]);
 

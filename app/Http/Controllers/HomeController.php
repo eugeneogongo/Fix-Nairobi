@@ -8,6 +8,8 @@
 
 namespace FixNairobi\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+
 class HomeController extends Controller
 {
     /**
@@ -17,8 +19,15 @@ class HomeController extends Controller
      */
 
     public function index()
-    {
-        return view('index')->withTitle("FixNairobi");
+    { $problems  =DB::table('problems')
+        ->select('problems.id as id','moredetails as detail','Title','location',"Type_issues.desc",'problems.created_at as publisheddat')
+        ->join('IssueStatus','problems.id','=','IssueStatus.issueid')
+        ->join("Type_issues","Type_issues.id","=","problems.issueid")
+        ->where('status','=','Not Fixed')->orderBy('problems.created_at', 'desc')
+        ->limit(4)-> get();
+        return view('index')->with([
+            "problems"=>$problems
+        ])->withTitle("FixNairobi");
     }
 
     public function showAbout(){

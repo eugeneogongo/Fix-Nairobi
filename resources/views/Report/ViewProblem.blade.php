@@ -104,7 +104,7 @@
                     processData: false,
                     data: formdata, // serializes the form's elements.
                     success: function (data) {
-                        console.log(data.status);
+                        console.log(data);
                         if (data.status === 'success') {
                             swal("Good job!", "The Issues has been marked as fixed", "success");
                             window.location = ('/admin')

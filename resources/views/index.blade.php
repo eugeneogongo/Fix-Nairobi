@@ -119,20 +119,16 @@
                 <div class="container">
 
                         @php
-                            use Illuminate\Support\Facades\Storage;
-                            $problems  =DB::table('problems')
-                                ->select('problems.id as id','moredetails as detail','Title','location',"Type_issues.desc",'path','problems.created_at as publisheddat')
-                                ->join('IssueStatus','problems.id','=','IssueStatus.issueid')
-                                ->join("Type_issues","Type_issues.id","=","problems.issueid")
-                                ->join("photos",'problems.id','=','photos.issueid')
-                                ->where('status','=','Not Fixed')->orderBy('problems.created_at', 'desc')
-                                ->limit(4)->distinct()-> get();
-                                foreach ($problems as $prob){
+                            use FixNairobi\Photo;use Illuminate\Support\Facades\Storage;
 
+                                foreach ($problems as $prob){
                                 echo('<a href=/viewissue/'.$prob->id.'>');
+                                $photo = Photo::where('issueid','=',$prob->id)->first();
+
                                 echo('
                                 <div>
-                                 <img class="rounded" style="float:right;width:90px;height:60px;margin-left: 1em;" src="'.Storage::url($prob->path).'" alt='.$prob->Title.' Image'.' />
+
+                                 <img class="rounded" style="float:right;width:90px;height:60px;margin-left: 1em;" src="'.Storage::url($photo->path).'" alt='.$prob->Title.' Image'.' />
                                  '.$prob->Title.' Was Reported at '.$prob->detail.'</br>
                                  <small>'.$prob->publisheddat.'</small>
                                  </div>
