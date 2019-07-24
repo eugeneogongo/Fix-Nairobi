@@ -1,8 +1,8 @@
 <?php
 /**
- * Developed by Eugene Ogongo on 7/20/19 10:44 AM
+ * Developed by Eugene Ogongo on 7/24/19 3:12 PM
  * Author Email: eugeneogongo@live.com
- * Last Modified 7/20/19 10:41 AM
+ * Last Modified 7/24/19 3:12 PM
  * Copyright (c) 2019 . All rights reserved
  */
 
@@ -10,13 +10,11 @@ namespace FixNairobi\Http\Controllers;
 
 use Exception;
 use FixNairobi\Feedback;
-use FixNairobi\Jobs\SendAckEmail;
 use FixNairobi\Notifications\ProblemReceived;
-use FixNairobi\Notifications\RegisterSuccess;
-use FixNairobi\Photo;
 use FixNairobi\Problem;
 use FixNairobi\TypeIssues;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Notification;
 
@@ -26,7 +24,7 @@ class ReportController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => 'reportfeed']);
+
     }
 
     //
@@ -41,7 +39,10 @@ class ReportController extends Controller
 
             //save details
             $problem = new Problem();
-            $problem->userid = auth()->user()->id;
+            if (Auth::check()) {
+                $problem->userid = auth()->user()->id;
+            }
+
             $problem->location = $request->get('location');
             $problem->issueid = $request->get('issueid');
             $problem->landmark = $request->get('landmark');
@@ -59,7 +60,11 @@ class ReportController extends Controller
                 "issueid"=> $problem->id
             ]);
 
-            Notification::send(auth()->user(), new ProblemReceived());
+            if (Auth::check()) {
+
+                Notification::send(auth()->user(), new ProblemReceived());
+            }
+
 
             return response()->json(["status" => "success"]);
 
@@ -84,6 +89,7 @@ class ReportController extends Controller
 
     public function reportfeed(Request $request)
     {
+
         $feedback = new Feedback();
         $feedback->email = $request->email;
         $feedback->message = $request->message;
