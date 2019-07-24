@@ -1,8 +1,8 @@
 <?php
 /**
- * Developed by Eugene Ogongo on 7/20/19 10:45 AM
+ * Developed by Eugene Ogongo on 7/24/19 7:28 PM
  * Author Email: eugeneogongo@live.com
- * Last Modified 7/20/19 10:42 AM
+ * Last Modified 7/24/19 7:28 PM
  * Copyright (c) 2019 . All rights reserved
  */
 
@@ -42,3 +42,7 @@ Route::post('/file-a-complain', 'ReportController@reportfeed')->name('complain')
 Route::get('/feedbacks', 'AdminController@feedbacks')->middleware('admin')->name('feedbacks');
 
 Route::post('/fix','ViewProblemController@issueFixed')->middleware('admin')->name('fix');
+
+Route::post('/update', "ViewProblemController@update")->name('update');
+
+Route::get('/report/update/{id}', "ViewProblemController@success")->name('success');
