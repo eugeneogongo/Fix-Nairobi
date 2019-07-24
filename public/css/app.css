@@ -1,7 +1,7 @@
 /*
- * Developed by Eugene Ogongo on 7/20/19 10:44 AM
+ * Developed by Eugene Ogongo on 7/24/19 7:23 PM
  * Author Email: eugeneogongo@live.com
- * Last Modified 7/20/19 10:41 AM
+ * Last Modified 7/24/19 7:23 PM
  * Copyright (c) 2019 . All rights reserved
  */
 
@@ -17,7 +17,7 @@
  */
 .bg-nav {
   background: white;
-  color: green;
+    color: black;
 }
 :root {
   --blue: green;
@@ -182,7 +182,7 @@ sup {
 }
 
 a {
-  color: green;
+    color: black;
   text-decoration: none;
   background-color: transparent;
 }
