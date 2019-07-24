@@ -104,7 +104,13 @@
                     </div>
 
                     <div class="form-label-group" style="margin-top: 10px">
-                        <input type="submit" class="btn btn-outline-success form-control" value="Report">
+                        @guest()
+                            <input type="submit" class="btn btn-outline-success form-control"
+                                   value="Report as Anonymous">
+                        @elseauth()
+                            <input type="submit" class="btn btn-outline-success form-control" value="Report">
+                        @endguest()
+
                     </div>
 
                 </form>
@@ -229,7 +235,7 @@
                 navigator.geolocation.getCurrentPosition(function (position) {
                     //pan to location
                    placeMarkerAndPanTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude,map));
-                    map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude))
+                    map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
                     marker = new google.maps.Marker({
                         position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
                         map: map,
