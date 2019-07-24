@@ -1,17 +1,20 @@
 <?php
 /**
- * Developed by Eugene Ogongo on 7/20/19 10:44 AM
+ * Developed by Eugene Ogongo on 7/24/19 7:25 PM
  * Author Email: eugeneogongo@live.com
- * Last Modified 7/20/19 10:41 AM
+ * Last Modified 7/24/19 7:25 PM
  * Copyright (c) 2019 . All rights reserved
  */
 
 namespace FixNairobi\Http\Controllers;
 
+use Exception;
 use FixNairobi\Notifications\ReportFixed;
 use FixNairobi\Problem;
+use FixNairobi\Update;
 use FixNairobi\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Notification;
 
@@ -21,11 +24,11 @@ class ViewProblemController extends Controller
     public function viewIssue($id)
     {
         $problem = DB::table('problems')
-            ->select('*')
+            ->select(['*', 'problems.created_at', "Type_issues.desc"])
             ->join('IssueStatus', 'problems.id', '=', 'IssueStatus.issueid')
             ->join("Type_issues", "Type_issues.id", "=", "problems.issueid")
             ->join("photos", 'problems.id', '=', 'photos.issueid')
-            ->join('users', "users.id", "=", "problems.userid")
+            ->leftJoin('users', "users.id", "=", "problems.userid")
             ->where('problems.id', '=', $id)->limit(2)->get();
         if($problem->isEmpty()){
             abort(404,"The Problem was either deleted or not found");
@@ -33,13 +36,15 @@ class ViewProblemController extends Controller
         return view('Report.ViewProblem')->with("problem", $problem);
 
     }
+
     public function  issueFixed(Request $request){
+
         $id = $request->id;
         try{
             DB::table('IssueStatus')->where('issueid','=',$id)->update([
                 'status'=>"Fixed"
             ]);
-        }catch(\Exception $ex){
+        } catch (Exception $ex) {
             return response()->json([
                 'status'=>'failure'
             ]);
@@ -52,5 +57,27 @@ class ViewProblemController extends Controller
         return response()->json([
             'status'=>'success'
         ]);
+    }
+
+    //update problem
+    public function update(Request $request)
+    {
+        $update = new Update();
+
+        $update->content = $request->update;
+        if (Auth::check()) {
+            $update->userid = \auth()->user()->id;
+        }
+        $update->issueid = $request->problemid;
+        if ($update->save()) {
+            response()->redirectTo('/problem/update/' . $request->problemid);
+        }
+    }
+
+    //shows the success window
+    public function success($id)
+    {
+        $problem = Problem::all('*')->where('id', '=', $id)->first();
+        return view('Report.update')->with(['problem' => $problem]);
     }
 }
