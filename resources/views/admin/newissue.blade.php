@@ -39,6 +39,7 @@
                             console.log(data.status);
                             if(data.status=='success'){
                                 swal("Good job!", "New Issues was Added successfully", "success");
+                                window.location= "/admin/newIssue";
                                 document.getElementById("form").reset();
                             }else{
                                 swal("Error", "There was a problem", "error");

@@ -3,6 +3,22 @@
     <link href="{{\Illuminate\Support\Facades\URL::asset("css/mystyle.css")}}" rel="stylesheet"/>
     <link href="{{\Illuminate\Support\Facades\URL::asset("css/reportproblem.css")}}" rel="stylesheet"/>
     <style>
+        body{
+            font-family: "Museo300-display",MuseoSans,Helmet,Freesans,sans-serif;
+        }
+
+        textarea{
+            /* box-sizing: padding-box; */
+            overflow:hidden;
+            /* demo only: */
+            padding:10px;
+            width:250px;
+            font-size:14px;
+            margin:50px auto;
+            display:block;
+            border-radius:10px;
+            border:6px solid #556677;
+        }
         .myflex {
             display: flex;
             flex-wrap: wrap;
@@ -24,41 +40,114 @@
         .bg {
             background: grey;
         }
+        h1 {
+            font-family: "Museo300-display",MuseoSans,Helmet,Freesans,sans-serif;
+            font-size: 2em;
+            line-height: 1em;
+            font-weight: normal;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+        .meta-info{
+            font-size:1em;
+            font-weight: normal;
+            margin: 0 0 1em;
+        }
+        .description{
+            margin: 1em 0 0 0;
+            padding: 1em;
+            background: #fff;
+            color: #222;
+        }
+        div >p{
+            font-size: 1em;
+            font-weight: normal;
+            margin: 0 0 1em;
+            display: block;
+        }
+        h2{
+            font-family: "Museo300-display",MuseoSans,Helmet,Freesans,sans-serif;
+            font-size: 1.5em;
+            line-height: 1.3333em;
+            font-weight: normal;
+            margin-bottom: 0.666666666em;
+        }
+        @media (min-width: 1025px) {
+
+            .anyClass {
+                height:600px;
+                overflow-y: scroll;
+            }
+
+        }
+        @media (max-width: 600px) {
+            article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+                display: block;
+                padding-top: 120px;
+            }
+
+        }
 
     </style>
 @endsection
 @section('content')
-    <div class="myrow mb-5">
-        <div class="column-sm card">
-
-            <div class="form-label-group">
-                <label><b>Title: </b>{{$problem[0]->Title}}</label>
-
+    <div class="container mb-3 mt-3" style="display: block">
+    <div class="row mb-2" style="height: 600px;">
+        <div id="map" class="col-sm-8 card order-sm-1"></div>
+        <div class="col-sm-4 card order-sm-2">
+            <div class="container anyClass">
+                <h1>{{ ucfirst( $problem[0]->Title)}}</h1>
+            <div class="meta-info">
+                Reported by <strong>
+                    @if($problem[0]->name ===null)
+                        {{('Anonymous')}}
+                    @else
+                        {{$problem[0]->name}}
+                    @endif
+                </strong>at
+                <small> {{($problem[0]->created_at)}}</small>
             </div>
-            <div class="form-label-group">
-                <label><strong>Summary of the Problem: </strong>{{$problem[0]->moredetails}}</label>
-            </div>
-            <div class="form-label-group">
-                <label><strong>LandMark: </strong>{{$problem[0]->landmark}}</label>
-            </div>
-            <div class="form-label-group">
-                <label><strong>IssuesStatus: </strong>{{$problem[0]->status}}</label>
-            </div>
-            <hr>
-
-            <p>Photos </p>
-            <div class="myflex">
+            <div class="container">
+                <div class="row">
                 @isset($problem[0]->path)
-                <div class="child">
-                    <img src="{{Storage::url($problem[0]->path)}}" id="img1" class="card-img-top bg"/>
-                </div>
+                    <div class="col-6">
+                        <img src="{{Storage::url($problem[0]->path)}}" id="img1" class="card-img-top"/>
+                    </div>
                 @endisset
                 @isset($problem[1]->path)
-                <div class="child">
-                    <img src="{{Storage::url($problem[1]->path)}}" id="img2" class="card-img-top bg"/>
-                </div>
+                    <div class="col-6">
+                        <img src="{{Storage::url($problem[1]->path)}}" id="img2" class="card-img-top"/>
+                    </div>
                 @endisset
+                </div>
             </div>
+            <div class="description">
+                <p>{{$problem[0]->moredetails}}</p>
+                <p>LandMark<strong> {{$problem[0]->landmark}}</strong></p>
+                <p> <strong>Status: </strong>The Issue is {{$problem[0]->status}}</p>
+            </div>
+                @isset($updates)
+                    @if(count($updates)>0)
+                    <h4>Updates</h4>
+                    @endif
+                    <ul class="list-group list-group-flush">
+                    @foreach($updates as $update)
+                            <li class="list-group-item">{{$update->content}}</li>
+                        @endforeach
+                    </ul>
+                    @endisset
+            <h2>
+                Provide Your update
+            </h2>
+                <form class="text-center mt-2" method="post" action="{{route('update')}}">
+                    @csrf
+                    <textarea name="update" rows="2" class="form-control" id="form_update" required="" spellcheck="false"></textarea>
+                    <input name="problemid" value="{{$problem[0]->issueid}}" hidden>
+                 <div class="form-group mt-2">
+                     <input type="submit" class="btn btn-info"  value="Post Update"/>
+                 </div>
+                </form>
+
             @auth()
                 @if(auth()->user()->isAdmin==1)
                     <div class="text-center mb-2 mb-sm-1">
@@ -70,13 +159,10 @@
 
                     </div>
                 @endif
-            @endauth
-            <div class="card-footer">
-                reported by <strong> {{$problem[0]->name}} </strong>at
-                <small> {{$problem[0]->created_at}}</small>
-            </div>
+                @endauth
         </div>
-        <div id="map" class="column-lg card"></div>
+        </div>
+    </div>
     </div>
 @endsection
 @section('scripts')
@@ -158,7 +244,21 @@
     <script async defer
             src="{{env('Map')}}">
     </script>
+<script>
+    var textarea = document.querySelector('textarea');
 
+    textarea.addEventListener('keydown', autosize);
+
+    function autosize(){
+        var el = this;
+        setTimeout(function(){
+            el.style.cssText = 'height:auto; padding:0';
+            // for box-sizing other than "content-box" use:
+            // el.style.cssText = '-moz-box-sizing:content-box';
+            el.style.cssText = 'height:' + el.scrollHeight + 'px';
+        },0);
+    }
+</script>
 
 
 @endsection

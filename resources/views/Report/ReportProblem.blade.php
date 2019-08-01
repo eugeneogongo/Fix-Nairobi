@@ -154,11 +154,10 @@
                         console.log(data.status);
                         if (data.status === 'success') {
                             swal("Good job!", "Your problem was submitted", "success");
-                            document.getElementById("newissue").reset();
+                            window.location.replace("/report/update/"+data.problemid);
                         } else {
                             swal("Error", "There was a problem submiting your problem", "error");
                         }
-
                     },
                     error: function (data) {
 

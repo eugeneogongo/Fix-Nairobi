@@ -6,6 +6,9 @@
         .counter {
             text-align: center;
         }
+        a:active {
+            text-decoration: none;
+        }
 
         .employees, .customer, .design, .order {
 
@@ -75,7 +78,10 @@
             background-color: #5cb85c;
             border-color: #4cae4c;
         }
+        .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+            font-family: inherit;
 
+        }
     </style>
 @endsection
 @section('content')
@@ -127,10 +133,10 @@
 
                                 echo('
                                 <div>
-
                                  <img class="rounded" style="float:right;width:90px;height:60px;margin-left: 1em;" src="'.Storage::url($photo->path).'" alt='.$prob->Title.' Image'.' />
-                                 '.$prob->Title.' Was Reported at '.$prob->detail.'</br>
-                                 <small>'.$prob->publisheddat.'</small>
+                              <strong> <u>  '.ucfirst($prob->Title).' Was Reported at '.$prob->landmark.'</u></strong></br>
+                                 <p>'.$prob->detail.'</p>
+                                 <p class="card-text">'.substr($prob->publisheddat,100).'</small>
                                  </div>
                              </a>
                              <hr>');

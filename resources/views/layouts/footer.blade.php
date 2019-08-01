@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="page-footer font-small blue-grey lighten-5">
+<footer class="page-footer font-small blue-grey lighten-5" id = "footer">
 
     <div style="background-color: grey;">
         <div class="container">

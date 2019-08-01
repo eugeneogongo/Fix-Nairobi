@@ -39,7 +39,7 @@
         <div class="card">
             <div class="confirmation">
                 <h1 class="display-3">{{ucfirst($problem->Title)}}</h1>
-                <h2 class="lead">Thank you for making Nairobi Better!</h2>
+                <h2 class="lead">Thank you for making Nairobi Better! We have recieved your update or Problem</h2>
                 </p>
             </div>
             <div class="row mb-3">
