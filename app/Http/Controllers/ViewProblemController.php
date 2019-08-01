@@ -1,8 +1,8 @@
 <?php
 /**
- * Developed by Eugene Ogongo on 7/24/19 7:25 PM
+ * Developed by Eugene Ogongo on 8/1/19 2:06 PM
  * Author Email: eugeneogongo@live.com
- * Last Modified 7/24/19 7:25 PM
+ * Last Modified 8/1/19 2:06 PM
  * Copyright (c) 2019 . All rights reserved
  */
 
@@ -33,7 +33,10 @@ class ViewProblemController extends Controller
         if($problem->isEmpty()){
             abort(404,"The Problem was either deleted or not found");
         }
-        return view('Report.ViewProblem')->with("problem", $problem);
+
+        $updates = Update::all()->where("issueid", '=', $id)->take(3);
+
+        return view('Report.ViewProblem')->with(["problem" => $problem, "updates" => $updates]);
 
     }
 
@@ -70,8 +73,9 @@ class ViewProblemController extends Controller
         }
         $update->issueid = $request->problemid;
         if ($update->save()) {
-            response()->redirectTo('/problem/update/' . $request->problemid);
+
         }
+        return response()->redirectTo('/report/update/' . $request->problemid);
     }
 
     //shows the success window
