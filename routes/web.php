@@ -1,8 +1,8 @@
 <?php
 /**
- * Developed by Eugene Ogongo on 7/24/19 7:28 PM
+ * Developed by Eugene Ogongo on 8/1/19 2:07 PM
  * Author Email: eugeneogongo@live.com
- * Last Modified 7/24/19 7:28 PM
+ * Last Modified 8/1/19 2:07 PM
  * Copyright (c) 2019 . All rights reserved
  */
 
@@ -46,3 +46,6 @@ Route::post('/fix','ViewProblemController@issueFixed')->middleware('admin')->nam
 Route::post('/update', "ViewProblemController@update")->name('update');
 
 Route::get('/report/update/{id}', "ViewProblemController@success")->name('success');
+
+Route::get('/addadmin', 'AdminController@adminpage')->name('adminpage');
+Route::post('/addadmin', 'AdminController@createadmin')->name('createadmin');
