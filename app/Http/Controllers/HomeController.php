@@ -1,8 +1,8 @@
 <?php
 /**
- * Developed by Eugene Ogongo on 7/20/19 10:44 AM
+ * Developed by Eugene Ogongo on 8/1/19 2:05 PM
  * Author Email: eugeneogongo@live.com
- * Last Modified 7/20/19 10:41 AM
+ * Last Modified 8/1/19 2:05 PM
  * Copyright (c) 2019 . All rights reserved
  */
 
@@ -20,7 +20,7 @@ class HomeController extends Controller
 
     public function index()
     { $problems  =DB::table('problems')
-        ->select('problems.id as id','moredetails as detail','Title','location',"Type_issues.desc",'problems.created_at as publisheddat')
+        ->select('problems.id as id', 'moredetails as detail', 'Title', 'location', "Type_issues.desc", 'problems.created_at as publisheddat', "problems.landmark")
         ->join('IssueStatus','problems.id','=','IssueStatus.issueid')
         ->join("Type_issues","Type_issues.id","=","problems.issueid")
         ->where('status','=','Not Fixed')->orderBy('problems.created_at', 'desc')
