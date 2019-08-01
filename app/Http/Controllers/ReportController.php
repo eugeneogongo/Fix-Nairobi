@@ -1,8 +1,8 @@
 <?php
 /**
- * Developed by Eugene Ogongo on 7/24/19 3:12 PM
+ * Developed by Eugene Ogongo on 8/1/19 2:05 PM
  * Author Email: eugeneogongo@live.com
- * Last Modified 7/24/19 3:12 PM
+ * Last Modified 8/1/19 2:05 PM
  * Copyright (c) 2019 . All rights reserved
  */
 
@@ -61,12 +61,11 @@ class ReportController extends Controller
             ]);
 
             if (Auth::check()) {
-
+                //Notification
                 Notification::send(auth()->user(), new ProblemReceived());
             }
 
-
-            return response()->json(["status" => "success"]);
+            return response()->json(["status" => "success", "problemid" => $problem->id]);
 
 
         } catch (Exception $ex) {
