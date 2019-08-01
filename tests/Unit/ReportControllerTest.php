@@ -1,16 +1,14 @@
 <?php
 /**
- * Developed by Eugene Ogongo on 7/20/19 10:44 AM
+ * Developed by Eugene Ogongo on 8/1/19 2:07 PM
  * Author Email: eugeneogongo@live.com
- * Last Modified 7/20/19 10:41 AM
+ * Last Modified 8/1/19 2:07 PM
  * Copyright (c) 2019 . All rights reserved
  */
 
 namespace FixNairobi\Http\Controllers;
 
 
-use FixNairobi\Mail\ProblemReported;
-use FixNairobi\Photo;
 use FixNairobi\TypeIssues;
 use FixNairobi\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -24,13 +22,6 @@ class ReportControllerTest extends TestCase
 
     use RefreshDatabase;
 
-    public function testUser_notauthenticated()
-    {
-
-        $response = $this->get('/reportproblem');
-        $response->assertStatus(302);
-        $response->assertRedirect('/login');
-    }
 
     public function testShow()
     {
@@ -79,7 +70,6 @@ class ReportControllerTest extends TestCase
         $this->assertDatabaseHas('IssueStatus', [
             'status' => 'Not Fixed'
         ]);
-        Mail::assertSent(ProblemReported::class,1);
         $content = json_decode($response->getContent());
         $this->assertObjectHasAttribute('status', $content);
     }
