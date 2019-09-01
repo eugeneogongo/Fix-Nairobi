@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run a multi-line script
       run: |
-       mysql -e 'create database fix;'
+       mysql -u root root -e 'create database fix;'
        cp .env.example .env
        php -v
        composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
