@@ -9,12 +9,16 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Run a multi-line script
+    - name: Php version
+      run: php -v
+    - name: Create database via commandline
+      run:  mysql -u root -proot -e 'create database Fix;'
+    - name: Build, and Run
       run: |
-       mysql -u root -proot -e 'create database Fix;'
        cp .env.example .env
-       php -v
        composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
        php artisan migrate
        php artisan key:generate
+    - name: run unit Tests
+      run: vendor/bin/phpunit
        
