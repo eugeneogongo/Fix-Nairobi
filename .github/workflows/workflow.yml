@@ -1,0 +1,17 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a multi-line script
+      run: |
+       php -v
+       composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+       php artisan key:generate
+       
