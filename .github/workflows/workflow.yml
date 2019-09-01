@@ -14,5 +14,6 @@ jobs:
        cp .env.example .env
        php -v
        composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+       php artisan migrate
        php artisan key:generate
        
